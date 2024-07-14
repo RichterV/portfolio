@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+
+<head>
+  <!-- PAGE INFO -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RichterV</title>
+  <!-- Page icon -->
+  <link rel="shortcut icon" type="image/x-icon" href="assets/images/main_icon.png">
+
+  <!-- Icones -->
+  <link rel="stylesheet" href="assets/fonts/style.css" />
+
+  <!-- Swiper -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+  <!-- STYLES -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <header id="header">
+    <nav class="container">
+      <a class="logo" href="#">Richter<span>V</span>.</a>
+      <!-- menu -->
+      <div class="menu">
+        <ul class="grid">
+          <li><a class="title" href="#home">Início</a></li>
+          <li><a class="title" href="#about">Sobre</a></li>
+          <li><a class="title" href="#projects">Projetos</a></li>
+          <!-- 
+          <li><a class="title" href="#testimonials">Depoimentos</a></li>
+          -->
+          <li><a class="title" href="#contact">Contato</a></li>
+        </ul>
+      </div>
+      <!-- /menu -->
+      <div class="toggle icon-menu"></div>
+      <div class="toggle icon-close"></div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HOME -->
+    <section class="section" id="home">
+      <div class="container grid">
+        <div class="image">
+          <img src="assets/images/IA_logo.jpg" alt="IA logo" />
+        </div>
+        <div class="text">
+          <h2 class="title">Soluções de Automação e Machine Learning aplicado ao setor florestal</h2>
+          <p>
+            Richter V. possui graduação em Engenharia Florestal e está atualmente cursando Mestrado em Engenharia
+            Florestal com especialização em crescimento e produção florestal na Universidade Federal de Santa Maria.
+            Atua nas áreas de inteligência artificial, visão computacional, programação em Python, inventário florestal,
+            sensoriamento remoto e manejo florestal.
+          </p>
+          <a id="open-contact-form" class="button"
+            href="https://api.whatsapp.com/send?phone=+55559680-5723&text=Olá! Gostaria de solicitar um serviço."
+            target="_blank">Entrar em contato</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider-1"></div>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container grid">
+        <div class="image">
+          <img src="assets/images/foto_perfil.jpg" alt="foto perfil" />
+        </div>
+        <div class="text" style="text-align: justify;">
+          <h2 class="title">Sobre</h2>
+          <p>
+            Com o objetivo de evoluir na área de <i>Data Science</i> e <i>Machine Learning</i>, e ao mesmo tempo seguir
+            com o enfoque
+            ambiental adquirido no curso, participei dos laboratórios de geoprocessamento e sensoriamento remoto, bem
+            como do laboratório de estatística e manejo florestal durante minha trajetória acadêmica.
+          </p>
+          <br />
+          <p>
+            Em sequência, pude aprimorar minhas habilidades com softwares de GIS durante o estágio nas empresas Brasplan
+            e CMPC, onde desenvolvi competências em análise de dados, geoprocessamento e inteligência artificial. Na
+            CMPC, fui responsável pela criação de estruturas de redes neurais para realização de relações
+            hipsométricas, utilizando as linguagens Python e R.
+          </p>
+          <br />
+          <p>
+            Posteriormente, fiquei encarregado da criação e
+            manutenção de um sistema online de estimativa de dados de inventário florestal. No programa de mestrado,
+            assumi, como minha dissertação, a criação de uma biblioteca em Python focada no processamento de dados de
+            inventário florestal, desenvolvendo algoritmos de regressão e redes neurais artificiais voltadas para
+            análise preditiva.
+          </p>
+          <br />
+          <p>
+            Além da criação da biblioteca e em parceria com outras empresas, atualmente estou focado no desenvolvimento
+            de algoritmos de identificação de objetos em imagens de RPAs para diagnóstico quantitativo e qualitativo de
+            plantios florestais. Sou uma pessoa analítica, constantemente admirado por novas tecnologias, e estou focado
+            em continuar a evoluir nas áreas relacionadas à análise de dados, visão computacional, geoprocessamento e
+            Machine Learning.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <div class="divider-2"></div>
+
+    <!-- SERVICES -->
+    <section class="section" id="projects">
+      <div class="container grid">
+        <header>
+          <h2 class="title">Projetos</h2>
+          <p class="subtitle">
+            Bem-vindo à seção de projetos do meu portfólio! Aqui, você encontrará uma seleção de
+            trabalhos que realizo ou estou desenvolvendo. Abaixo, você pode explorar os detalhes de cada projeto,
+            incluindo os desafios enfrentados, as soluções implementadas e os resultados alcançados.
+          </p>
+        </header>
+        <div class="cards grid">
+          <div class="card">
+            <i class="fa-brands fa-python"></i>
+            <h3 class="title">Forest Py Tools</h3>
+            <p>
+              Processe o gerenciamento florestal de ponta a ponta, de forma mais fácil possível.
+              <a href="https://richterv.github.io/fptoolsdoc/index.html" target="_blank" class="custom-link">Acessar
+                documentação</a>.
+            </p>
+          </div>
+          <div class="card">
+            <i class="fa-solid fa-location-crosshairs"></i>
+            <h3 class="title">Detecção de objetos</h3>
+            <p>
+              Substituição do inventário florestal de sobrevivência tradicional por algoritmos de detecção de objetos.
+              <a href="deteccao_de_objetos.html" class="custom-link">Acessar conteúdo</a>.
+            </p>
+          </div>
+          <div class="card">
+            <i class="fa-solid fa-tree"></i>
+            <h3 class="title">Processamento de inventários</h3>
+            <p>
+              Processe seus inventários e simule diferentes situações de campo com <a
+                href="https://richterv.github.io/fptoolsdoc/index.html" target="_blank" class="custom-link">Forest Py
+                Tools.</a>
+            </p>
+          </div>
+          <div class="card">
+            <i class="fa-solid fa-gear"></i>
+            <h3 class="title">Automações</h3>
+            <p>
+              Automatize tarefas diversas com o uso de bots em linguagem Python.
+            </p>
+          </div>
+          <div class="card">
+            <i class="fa-solid fa-microchip"></i>
+            <h3 class="title">Machine Learning</h3>
+            <p>
+              Através do seu contato, podemos criar uma solução personalizada para o seu problema.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider-1"></div>
+
+    <!-- TESTIMONIALS -->
+    <!--
+    <section class="section" id="testimonials">
+      <div class="container swiper">
+        <header>
+          <h2 class="title">O que dizem nossos clientes</h2>
+        </header>
+        <div class="testimonials swiper-container">
+          <div class="swiper-wrapper">
+            <div class="testimonial swiper-slide">
+              <blockquote>
+                <p>
+                  <span>&ldquo;</span>
+                  Filha da puta fica o dia inteiro fazendo código e não me compra ração.
+                </p>
+                <cite>
+                  <img src="assets/fotos/kiarinha.png" alt="Foto de kiarinha" alt="um cachorro muito bravo" />
+                  Kiarinha dos Santos R.
+                </cite>
+              </blockquote>
+            </div>
+
+            <div class="testimonial swiper-slide">
+              <blockquote>
+                <p>
+                  <span>&ldquo;</span>
+                  To vendo aqui como meter 80% de imposto nessa bodega
+                </p>
+                <cite>
+                  <img src="assets/fotos/lula.jpg" alt="ex-presidente lula" alt="Lula" />
+                  Luiz Inácio
+                </cite>
+              </blockquote>
+            </div>
+
+            <div class="testimonial swiper-slide">
+              <blockquote>
+                <p>
+                  <span>&ldquo;</span>
+                  Entra em contato por favor preciso de dinheiro pro meu pc gamer!
+                </p>
+                <cite>
+                  <img src="assets/fotos/vr.jpg" alt="foto de vinicius richter" alt="Fotos de Valeska Fabris" />
+                  Vinicius R
+                </cite>
+              </blockquote>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+    -->
+
+    <div class="divider-2"></div>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="container grid">
+        <div class="text">
+          <h2 class="title">Entre em contato!</h2>
+          <p>
+            Entre em contato para realizar um orçamento, retirar dúvidas ou solicitar mais
+            informações.
+          </p>
+          <a href="https://api.whatsapp.com/send?phone=+55559680-5723&text=Olá! Gostaria de solicitar um serviço."
+            class="button" target="_blank"><i class="icon-whatsapp"></i> Entrar em contato</a>
+        </div>
+
+        <div class="links">
+          <ul class="grid">
+            <li><i class="icon-phone"></i> +55 55 9 9680-5723</li>
+            <li><i class="icon-map-pin"></i> Santa Maria - RS </li>
+            <li><i class="icon-mail"></i> vinicius00rich@gmail.com</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider-1"></div>
+  </main>
+  <div class="divider-2"></div>
+
+  <!--fOOTER-->
+
+  <footer class="section">
+    <div class="container grid">
+      <div class="brand">
+        <a class="logo logo-alt" href="#home">Richter<span>V</span>.</a>
+        <p>©2024 Vinicius Richter</p>
+        <p>Todos os direitos reservados.</p>
+      </div>
+
+      <div class="social grid">
+        <div class="social grid">
+          <a href="https://www.linkedin.com/in/viniciusrichteref/" target="_blank">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+          <a href="https://api.whatsapp.com/send?phone=+55559680-5723&text=Olá! Vi seu portfolio e gostaria de mais informações."
+            target="_blank">
+            <i class="icon-whatsapp"></i>
+          </a>
+          <a href="https://github.com/RichterV" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#home" class="back-to-top"><i class="icon-arrow-up"></i></a>
+
+  <!-- swiper -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <!-- scrollreveal -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+
+  <!-- main.js -->
+  <script src="main.js"></script>
+
+  <!-- Script fontawesome -->
+  <script src="https://kit.fontawesome.com/4b26aa89bf.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

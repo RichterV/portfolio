@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+
+<head>
+  <!-- PAGE INFO -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RichterV</title>
+  <!-- Page icon -->
+  <link rel="shortcut icon" type="image/x-icon" href="assets/images/main_icon.png">
+
+  <!-- Icones -->
+  <link rel="stylesheet" href="assets/fonts/style.css" />
+
+  <!-- Swiper -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+  <!-- STYLES -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <header id="header">
+    <nav class="container">
+      <a class="logo" href="index.html">Richter<span>V</span>.</a>
+      <!-- menu -->
+      <div class="menu">
+        <ul class="grid">
+          <li><a class="title" href="#home">Início</a></li>
+          <li><a class="title" href="#about">Sobre</a></li>
+          <li><a class="title" href="#contact">Contato</a></li>
+        </ul>
+      </div>
+      <!-- /menu -->
+      <div class="toggle icon-menu"></div>
+      <div class="toggle icon-close"></div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HOME -->
+    <section class="section" id="home">
+      <div class="container grid">
+        <div class="image">
+          <img src="assets/images/deteccao_de_objetos_1.jpg" alt="deteccao_de_objetos_1.jpg" />
+        </div>
+        <div class="text">
+          <h2 class="title">Substituição do inventário florestal tradicional por algoritmos detecção de objetos</h2>
+          <p>
+            Através da utilização de imagens de drones, em plantios de 6 a 12 meses, é possível realizar a detecção
+            automática de indivíduos arbóreos. A partir disso, é possível identificar automaticamente falhas de plantios
+            e instruir equipes de campo de forma precisa, além da obtenção de variáveis como "área de copa" que servem
+            como indicadores qualitativos do plantio.
+
+          </p>
+          <a id="open-contact-form" class="button"
+            href="https://api.whatsapp.com/send?phone=+55559680-5723&text=Olá! Gostaria de solicitar mais informações sobre a substituição do IFS tradicional."
+            target="_blank">Mais informações</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider-1"></div>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container grid">
+        <div class="image">
+          <img class="image1" src="assets/images/deteccao_de_objetos_2.png" alt="detecção de objetos 2" />
+        </div>
+        <div class="text" style="text-align: justify;">
+          <h2 class="title">Sobre</h2>
+          <p>
+            O projeto foca em utilizar algoritmos de detecção de objetos previamente treinados para identificar
+            indivíduos arbóreos no campo. Este processo permite que falhas sejam reportadas junto com suas respectivas
+            geolocalizações, possibilitando que o gestor do plantio oriente as equipes de campo de forma automatizada e
+            precisa.
+          </p>
+          <br />
+          <p>
+            Em drones equipados com sensores RGB, é possível gerar o índice de vegetação <strong>MPRI</strong>
+            (<i>Modified Photochemical Reflectance Index</i>). O MPRI, possui a capacidade de destacar a presença de
+            clorofila em meio a outros elementos de campo, fazendo com que folhas sejam mais facilmente detectadas,
+            ajudando na performance do algoritmo para a detecção.
+          </p>
+          </p>
+          <br />
+          <p>
+            Estudos prévios realizados (<i>aguardando publicação</i>) demonstram capacidade de detecção corretas de
+            &asymp; 96% para imagens utilizando índice de vegetação MPRI. Para composição RGB, a taxa de acertos foi de
+            mais de &asymp; 92%. Esses resultados mostram o quão promissora é a tecnologia, uma vez que a adição de mais
+            imagens ao treinamento do algoritmo aumenta sua precisão nas detecções.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider-2"></div>
+    <!-- PRÓXIMOS PASSOS -->
+    <section class="section" id="about2">
+      <div class="container grid">
+        <div class="image">
+          <img class="image1" src="assets/images/segmentacao.png" alt="detecção de objetos 2" />
+        </div>
+        <div class="text" style="text-align: justify;">
+          <h2 class="title">Segmentação de copas e cálculo de área</h2>
+          <p>
+            Após a detecção de cada indivíduo arbóreo, é possível utilizar algoritmos de segmentação para delimitar a
+            copa. Visto que imagens de drones são, geralmente, georreferenciadas, é possível obter o tamanho de cada
+            pixel e consequentemente calcular a área de copa dos indivíduos detectados.
+          </p>
+          <br />
+          <p>
+            A área de copa de um plantio torna-se uma variável de grande importância para fornecer informações
+            qualitativas sobre o povoamento.
+            Em conjunto com inventários que serão futuramente realizados no talhão florestal, a área de copa calculada
+            pode ser utilizada como preditor de produção futura. Algoritmos de redes neurais
+            artificiais são
+            capazes de cruzar dados de inventário florestal com dados obtidos na segmentação e prever o comportamento
+            futuro da floresta, fornecendo dados como incremento médio anual, produção em m³ entre outras variáveis.
+          </p>
+          </p>
+          <br />
+          <p>
+            Deste modo, o presente projeto trás uma abordagem inovativa que pode substituir a realização
+            do senso manual no inventário florestal de sobrevivência, economizando recursos de equipe e potencializando
+            o manejo florestal de precisão.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+
+    <div class="divider-1"></div>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="container grid">
+        <div class="text">
+          <h2 class="title">Entre em contato!</h2>
+          <p>
+            Entre em contato para realizar um orçamento, retirar dúvidas ou solicitar mais
+            informações.
+          </p>
+          <a href="https://api.whatsapp.com/send?phone=+55559680-5723&text=Olá! Gostaria de solicitar um serviço."
+            class="button" target="_blank"><i class="icon-whatsapp"></i> Entrar em contato</a>
+        </div>
+
+        <div class="links">
+          <ul class="grid">
+            <li><i class="icon-phone"></i> +55 55 9 9680-5723</li>
+            <li><i class="icon-map-pin"></i> Santa Maria - RS </li>
+            <li><i class="icon-mail"></i> vinicius00rich@gmail.com</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider-1"></div>
+  </main>
+
+  <footer class="section">
+    <div class="container grid">
+      <div class="brand">
+        <a class="logo logo-alt" href="#home">Richter<span>V</span>.</a>
+        <p>©2024 Vinicius Richter</p>
+        <p>Todos os direitos reservados.</p>
+      </div>
+
+      <div class="social grid">
+        <div class="social grid">
+          <a href="https://www.linkedin.com/in/viniciusrichteref/" target="_blank">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+          <a href="https://api.whatsapp.com/send?phone=+55559680-5723&text=Olá! Vi seu portfolio e gostaria de mais informações."
+            target="_blank">
+            <i class="icon-whatsapp"></i>
+          </a>
+          <a href="https://github.com/RichterV" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#home" class="back-to-top"><i class="icon-arrow-up"></i></a>
+
+  <!-- swiper -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <!-- scrollreveal -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+
+  <!-- main.js -->
+  <script src="main.js"></script>
+
+  <!-- Script fontawesome -->
+  <script src="https://kit.fontawesome.com/4b26aa89bf.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
