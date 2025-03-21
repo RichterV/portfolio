@@ -398,6 +398,13 @@ nav.show div.icon-close {
   color: var(--base-color);
 }
 
+.card img {
+  display: block;
+  width: 5rem;
+  height: 5rem;
+  margin: 0 auto 1.5rem auto;
+}
+
 .card .title {
   font-size: 1.5rem;
   margin-bottom: 0.75rem;
