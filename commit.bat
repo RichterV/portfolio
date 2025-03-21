@@ -16,3 +16,4 @@ git commit -m "atualizações %CURRENT_DATE%"
 
 :: Faz push para o repositório remoto
 git push -u origin main
+pause
