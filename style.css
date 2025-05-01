@@ -6,7 +6,7 @@
     --hue: 159;
     --base-color: hsl(var(--hue) 36% 57%);
     --text-color-light: hsl(0 0% 98%);
-    --bg-hero-url: url('assets/images/hero_background.jpg');
+    --bg-hero-url: url('assets/images/hero_background.webp');
 
 }
 body {
