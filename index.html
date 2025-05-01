@@ -1,327 +1,56 @@
 <!DOCTYPE html>
-<html lang="pt_BR">
+<html lang="en">
 
 <head>
-  <!-- PAGE INFO -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RichterV</title>
-  <!-- Page icon -->
-  <link rel="shortcut icon" type="image/x-icon" href="assets/images/main_icon.png">
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Vinicius Richter | Forest Engineer & Data Scientist">
+    <meta property="og:description"
+        content="Bridging forestry and technology through data science, computer vision, and innovation.">
+    <meta property="og:image" content="https://richterv.github.io/portfolio/assets/images/card_preview.png">
+    <meta property="og:url" content="https://richterv.github.io/portfolio/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
 
-  <!-- Icones -->
-  <link rel="stylesheet" href="assets/fonts/style.css" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Vinicius Richter | Forest Engineer & Data Scientist">
+    <meta name="twitter:description"
+        content="Bridging forestry and technology through data science, computer vision, and innovation.">
+    <meta name="twitter:image" content="https://richterv.github.io/portfolio/assets/images/card_preview.png">
 
-  <!-- Swiper -->
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
-  <!-- STYLES -->
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap"
-    rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinicius Richter | Forest Engineer & Data Scientist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="/assets/scrollreveal.js"></script>
 </head>
 
-<body>
-  <header id="header">
-    <nav class="container">
-      <a class="logo" href="#">Richter<span>V</span>.</a>
-      <!-- menu -->
-      <div class="menu">
-        <ul class="grid">
-          <li><a class="title" href="#home">Início</a></li>
-          <li><a class="title" href="#about">Sobre</a></li>
-          <li><a class="title" href="#projects">Projetos</a></li>
-          <!-- 
-          <li><a class="title" href="#testimonials">Depoimentos</a></li>
-          -->
-          <li><a class="title" href="#contact">Contato</a></li>
-        </ul>
-      </div>
-      <!-- /menu -->
-      <div class="toggle icon-menu"></div>
-      <div class="toggle icon-close"></div>
-    </nav>
-  </header>
 
-  <main>
-    <!-- HOME -->
-    <section class="section" id="home">
-      <div class="container grid">
-        <div class="image">
-          <img src="assets/images/IA_logo.jpg" alt="IA logo" />
-        </div>
-        <div class="text">
-          <h2 class="title">Soluções de Automação e Machine Learning</h2>
-          <p style="text-align: justify; margin-right: 20px;">
-            Richter V. é cientista de dados com formação em Engenharia Florestal, mestrando em Engenharia Florestal com
-            foco em modelagem e análise preditiva na Universidade Federal de Santa Maria, e estudante de Ciência da
-            Computação no Instituto Federal Farroupilha. Atua nas áreas de análise de dados, inteligência artificial,
-            visão computacional e programação em Python, com experiência no desenvolvimento de soluções baseadas em
-            dados para otimização de processos e suporte à tomada de decisão em diferentes contextos.
-          </p>
-          <a id="open-contact-form" class="button"
-            href="https://api.whatsapp.com/send?phone=+55559680-5723&text=Olá! Gostaria de solicitar um serviço."
-            target="_blank">Entrar em contato</a>
-        </div>
-      </div>
-    </section>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <div id="navigation"></div>
+    <!-- Hero Section -->
+    <div id="include-hero"></div>
+    <!-- About Section -->
+    <div id="about"></div>
+    <!-- Education Section -->
+    <div id="education"></div>
+    <!-- Projects Section -->
+    <div id="projects"></div>
+    <!-- Research Section -->
+    <div id="research"></div>
+    <!-- Technologies Section -->
+    <div id="technologies"></div>
+    <!-- Contact Section -->
+    <div id="contact"></div>
+    <!-- Footer -->
+    <div id="footer"></div>
 
-    <div class="divider-1"></div>
-
-    <!-- ABOUT -->
-    <section class="section" id="about">
-      <div class="container grid">
-        <div class="image">
-          <img src="assets/images/foto_perfil.jpg" alt="foto perfil" />
-        </div>
-        <div class="text" style="text-align: justify;">
-          <h2 class="title">Sobre</h2>
-          <p>
-            Meu nome é Vinicius Richter, sou cientista de dados formado em Engenharia Florestal, atualmente finalizando
-            o mestrado na Universidade Federal de Santa Maria e cursando Ciência da Computação no Instituto Federal
-            Farroupilha.
-          </p>
-          <br />
-          <p>
-            Durante minha trajetória acadêmica, participei ativamente dos laboratórios de geoprocessamento e
-            sensoriamento remoto, bem como do laboratório de estatística e manejo florestal, sempre buscando aprimorar
-            meus conhecimentos em Data Science, Programação e Geoprocessamento.
-          </p>
-          <br />
-          <p>
-            No mestrado, desenvolvi uma biblioteca em Python com foco na otimização da análise de dados de inventário em
-            projetos de Manejo Florestal, utilizando algoritmos de regressão e redes neurais artificiais voltadas à
-            análise preditiva.
-          </p>
-          <br />
-          <p>
-            Atuo como profissional autônomo, oferecendo serviços de análise de dados para demandas específicas de
-            clientes. Além disso, em parceria com empresas, desenvolvo pesquisas aplicadas com foco na utilização de
-            algoritmos de visão computacional para o monitoramento qualitativo de plantios florestais.
-          </p>
-          <br />
-          <p>
-            Também tive a oportunidade de aprimorar minhas habilidades em empresas como a Brasplan e a CMPC Celulose
-            Rio-grandense, onde trabalhei com análise de dados, geoprocessamento, desenvolvimento de painéis interativos
-            e Web Apps, além da construção de redes neurais artificiais para estimativas de relações hipsométricas de
-            povoamentos florestais.
-          </p>
-          <br />
-          <p>
-            Sou uma pessoa curiosa, apaixonada por aprendizado contínuo, e estou constantemente em busca de evoluir nas
-            áreas de ciência de dados, aprendizado de máquina, inteligência artificial e estatística.
-          </p>
-        </div>
-      </div>
-    </section>
-
-
-    <div class="divider-2"></div>
-
-    <!-- Projetos -->
-    <section class="section" id="projects">
-      <div class="container grid">
-        <header>
-          <h2 class="title">Projetos</h2>
-          <p class="subtitle">
-            Bem-vindo à seção de projetos do meu portfólio! Aqui, você encontrará uma seleção de
-            trabalhos que realizo ou estou desenvolvendo.
-          </p>
-        </header>
-        <div class="cards grid">
-          <div class="card">
-            <i class="fa-solid fa-map-location-dot"></i>
-            <h3 class="title">QGIS Plugin</h3>
-            <p>
-              Faça o planejamento de inventários florestais através do software QGIS com o plugin <a
-                href="https://richterv.github.io/fptoolsdoc/pt-BR/plot_allocation_qgis/" target="_blank"
-                class="custom-link">FPT Plot Alocation</a>.
-            </p>
-          </div>
-          <div class="card">
-            <i class="fa-brands fa-python"></i>
-            <h3 class="title">Forest Py Tools</h3>
-            <p>
-              Planeje e processe, em linguagem Python, o Manejo Florestal eficiênte de forma mais fácil e intuitíva.
-              <a href="https://richterv.github.io/fptoolsdoc/" target="_blank" class="custom-link">Acessar
-                documentação</a>.
-            </p>
-          </div>
-          <div class="card">
-            <i class="fa-solid fa-location-crosshairs"></i>
-            <h3 class="title">Detecção de objetos</h3>
-            <p>
-              Substituição do inventário florestal de sobrevivência tradicional por algoritmos de detecção de objetos.
-              <a href="deteccao_de_objetos.html" class="custom-link">Acessar conteúdo</a>.
-            </p>
-          </div>
-          <div class="card">
-            <i class="fa-solid fa-tree"></i>
-            <h3 class="title">Processamento de inventários</h3>
-            <p>
-              Processe seus inventários e simule diferentes situações de campo com <a
-                href="https://richterv.github.io/fptoolsdoc/" target="_blank" class="custom-link">Forest Py
-                Tools.</a>
-            </p>
-          </div>
-          <div class="card">
-            <i class="fa-solid fa-gear"></i>
-            <h3 class="title">Automações</h3>
-            <p>
-              Automatize tarefas diversas com o uso de bots em linguagem Python.
-            </p>
-          </div>
-          <div class="card">
-            <i class="fa-solid fa-microchip"></i>
-            <h3 class="title">Machine Learning</h3>
-            <p>
-              Através do seu contato, podemos criar uma solução personalizada para o seu problema.
-            </p>
-          </div>
-          <div class="card">
-            <img src="assets/images/rich_crypter_icon.svg" />
-            <h3 class="title">RichCrypter</h3>
-            <p>
-              Proteja senhas e arquivos PDF com um sistema de criptografia baseado em chave binária única, oferecendo
-              mais segurança e controle sobre seus dados.
-              <a href="https://github.com/RichterV/RichCrypter.git" target="_blank" class="custom-link">Acessar
-                repositório.</a>
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <div class="divider-1"></div>
-
-    <!-- TESTIMONIALS -->
-    <!--
-    <section class="section" id="testimonials">
-      <div class="container swiper">
-        <header>
-          <h2 class="title">O que dizem nossos clientes</h2>
-        </header>
-        <div class="testimonials swiper-container">
-          <div class="swiper-wrapper">
-            <div class="testimonial swiper-slide">
-              <blockquote>
-                <p>
-                  <span>&ldquo;</span>
-                  Filha da puta fica o dia inteiro fazendo código e não me compra ração.
-                </p>
-                <cite>
-                  <img src="assets/fotos/kiarinha.png" alt="Foto de kiarinha" alt="um cachorro muito bravo" />
-                  Kiarinha dos Santos R.
-                </cite>
-              </blockquote>
-            </div>
-
-            <div class="testimonial swiper-slide">
-              <blockquote>
-                <p>
-                  <span>&ldquo;</span>
-                  To vendo aqui como meter 80% de imposto nessa bodega
-                </p>
-                <cite>
-                  <img src="assets/fotos/lula.jpg" alt="ex-presidente lula" alt="Lula" />
-                  Luiz Inácio
-                </cite>
-              </blockquote>
-            </div>
-
-            <div class="testimonial swiper-slide">
-              <blockquote>
-                <p>
-                  <span>&ldquo;</span>
-                  Entra em contato por favor preciso de dinheiro pro meu pc gamer!
-                </p>
-                <cite>
-                  <img src="assets/fotos/vr.jpg" alt="foto de vinicius richter" alt="Fotos de Valeska Fabris" />
-                  Vinicius R
-                </cite>
-              </blockquote>
-            </div>
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-      </div>
-    </section>
-    -->
-
-    <div class="divider-2"></div>
-
-    <!-- CONTACT -->
-    <section class="section" id="contact">
-      <div class="container grid">
-        <div class="text">
-          <h2 class="title">Entre em contato!</h2>
-          <p>
-            Entre em contato para realizar um orçamento, retirar dúvidas ou solicitar mais
-            informações.
-          </p>
-          <a href="https://api.whatsapp.com/send?phone=+55559680-5723&text=Olá! Gostaria de solicitar um serviço."
-            class="button" target="_blank"><i class="icon-whatsapp"></i> Entrar em contato</a>
-        </div>
-
-        <div class="links">
-          <ul class="grid">
-            <li><i class="icon-phone"></i> +55 55 9 9680-5723</li>
-            <li><i class="icon-map-pin"></i>Frederico Westphalen - RS </li>
-            <li><i class="icon-mail"></i> vinicius00rich@gmail.com</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <div class="divider-1"></div>
-  </main>
-  <div class="divider-2"></div>
-
-  <!--fOOTER-->
-
-  <footer class="section">
-    <div class="container grid">
-      <div class="brand">
-        <a class="logo logo-alt" href="#home">Richter<span>V</span>.</a>
-        <p>©2024 Vinicius Richter</p>
-        <p>Todos os direitos reservados.</p>
-      </div>
-
-      <div class="social grid">
-        <div class="social grid">
-          <a href="https://www.linkedin.com/in/viniciusrichteref/" target="_blank">
-            <i class="fa-brands fa-linkedin"></i>
-          </a>
-          <a href="https://api.whatsapp.com/send?phone=+55559680-5723&text=Olá! Vi seu portfolio e gostaria de mais informações."
-            target="_blank">
-            <i class="icon-whatsapp"></i>
-          </a>
-          <a href="https://github.com/RichterV" target="_blank">
-            <i class="fab fa-github"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <a href="#home" class="back-to-top"><i class="icon-arrow-up"></i></a>
-
-  <!-- swiper -->
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-  <!-- scrollreveal -->
-  <script src="https://unpkg.com/scrollreveal"></script>
-
-  <!-- main.js -->
-  <script src="main.js"></script>
-
-  <!-- Script fontawesome -->
-  <script src="https://kit.fontawesome.com/4b26aa89bf.js" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>

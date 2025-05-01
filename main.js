@@ -1,113 +1,144 @@
-/*  abre e fecha o menu quando clicar no icone: hamburguer e x */
-const nav = document.querySelector('#header nav')
-const toggle = document.querySelectorAll('nav .toggle')
 
-for (const element of toggle) {
-  element.addEventListener('click', function () {
-    nav.classList.toggle('show')
-  })
-}
+// Carregamento das sections
 
-/* quando clicar em um item do menu, esconder o menu */
-const links = document.querySelectorAll('nav ul li a')
+const sections = [
+    { id: "navigation", file: "navigation.html" },
+    { id: "include-hero", file: "hero.html" },
+    { id: "about", file: "about.html" },
+    { id: "education", file: "education.html" },
+    { id: "projects", file: "projects.html" },
+    { id: "research", file: "research.html" },
+    { id: "technologies", file: "technologies.html" },
+    { id: "contact", file: "contact.html" },
+    { id: "footer", file: "footer.html" },
+];
 
-for (const link of links) {
-  link.addEventListener('click', function () {
-    nav.classList.remove('show')
-  })
-}
+sections.forEach(section => {
+    fetch(section.file)
+        .then(res => res.text())
+        .then(html => {
+            document.getElementById(section.id).innerHTML = html;
+        })
+        .catch(err => console.error(`Failed to load ${section.file}:`, err));
+});
 
-/* mudar o header da página quando der scroll */
-const header = document.querySelector('#header')
-const navHeight = header.offsetHeight
-
-function changeHeaderWhenScroll() {
-  if (window.scrollY >= navHeight) {
-    // scroll é maior que a altura do header
-    header.classList.add('scroll')
-  } else {
-    // menor que a altura do header
-    header.classList.remove('scroll')
+// Função para carregar todos os HTMLs e executar callback depois
+function loadSectionsAndInit(callback) {
+    const promises = sections.map(section =>
+      fetch(section.file)
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById(section.id).innerHTML = html;
+        })
+    );
+  
+    Promise.all(promises).then(callback);
   }
-}
+  
+  // ScrollReveal só roda depois que todas as seções foram inseridas
+  loadSectionsAndInit(() => {
+    const scrollReveal = ScrollReveal({
+      origin: 'top',
+      distance: '30px',
+      duration: 700,
+      reset: true
+    });
+  
+    scrollReveal.reveal(`
+      #home h1, #home h2, #home p, #home a,
+      #about .image, #about h2, #about h3, #about p, #about span,
+      #education h2, #education .flex,
+      #projects h2, #projects .card-hover,
+      #research h2, #research .card-hover,
+      .tech-icon,
+      #contact h2, #contact form, #contact .bg-white
+    `, { interval: 100 });
+  });
 
-/* Testimonials carousel slider swiper */
-const swiper = new Swiper('.swiper-container', {
-  slidesPerView: 1,
-  pagination: {
-    el: '.swiper-pagination'
-  },
-  mousewheel: true,
-  keyboard: true,
-  breakpoints: {
-    767: {
-      slidesPerView: 2,
-      setWrapperSize: true
-    }
-  }
-})
+// Mobile menu toggle
+document.getElementById('menu-toggle').addEventListener('click', function() {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('hidden');
+});
 
-/* ScrollReveal: Mostrar elementos quando der scroll na página */
-const scrollReveal = ScrollReveal({
-  origin: 'top',
-  distance: '30px',
-  duration: 700,
-  reset: true
-})
+// Close mobile menu when clicking a link
+document.querySelectorAll('#mobile-menu a').forEach(link => {
+    link.addEventListener('click', function() {
+        document.getElementById('mobile-menu').classList.add('hidden');
+    });
+});
 
-scrollReveal.reveal(
-  `#home .image, #home .text,
-  #about .image, #about .text,
-  #about2 .image, #about2 .text,
-   #projects .card, #projects .title, #projects .subtitle,
-  #services header, #services .card,
-  #testimonials header, #testimonials .testimonials
-  #contact .text, #contact .links,
-  footer .brand, footer .social
-  `,
-  { interval: 100 }
-)
+// Smooth scrolling for all links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
 
-/* Botão voltar para o topo */
-const backToTopButton = document.querySelector('.back-to-top')
-
-function backToTop() {
-  if (window.scrollY >= 560) {
-    backToTopButton.classList.add('show')
-  } else {
-    backToTopButton.classList.remove('show')
-  }
-}
-
-/* Menu ativo conforme a seção visível na página */
-const sections = document.querySelectorAll('main section[id]')
-function activateMenuAtCurrentSection() {
-  const checkpoint = window.pageYOffset + (window.innerHeight / 8) * 4
-
-  for (const section of sections) {
-    const sectionTop = section.offsetTop
-    const sectionHeight = section.offsetHeight
-    const sectionId = section.getAttribute('id')
-
-    const checkpointStart = checkpoint >= sectionTop
-    const checkpointEnd = checkpoint <= sectionTop + sectionHeight
-
-    if (checkpointStart && checkpointEnd) {
-      document
-        .querySelector('nav ul li a[href*=' + sectionId + ']')
-        .classList.add('active')
+// Add shadow to navbar on scroll
+window.addEventListener('scroll', function() {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 10) {
+        nav.classList.add('shadow-lg');
     } else {
-      document
-        .querySelector('nav ul li a[href*=' + sectionId + ']')
-        .classList.remove('active')
+        nav.classList.remove('shadow-lg');
     }
-  }
-}
+});
 
-/* When Scroll */
-window.addEventListener('scroll', function () {
-  changeHeaderWhenScroll()
-  backToTop()
-  activateMenuAtCurrentSection()
-})
+ // envio de email
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault(); // Impede o envio padrão do formulário
 
+    const form = e.target;
+    const data = new FormData(form);
+    const toast = document.getElementById('toast');
+
+    fetch('https://formspree.io/f/xovdjrra', {
+        method: 'POST',
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            // Limpa os campos do formulário
+            form.reset();
+
+            // Mostra o toast
+            toast.classList.remove('hidden');
+            toast.classList.add('opacity-0');
+
+            // Transição suave
+            setTimeout(() => {
+                toast.classList.remove('opacity-0');
+            }, 100);
+
+            // Esconde o toast após 4 segundos
+            setTimeout(() => {
+                toast.classList.add('opacity-0');
+            }, 4000);
+
+            // Remove completamente após a transição
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 4500);
+        } else {
+            alert('Erro ao enviar mensagem. Tente novamente.');
+        }
+    })
+    .catch(error => {
+        console.error('Erro:', error);
+        alert('Erro ao enviar mensagem. Tente novamente.');
+    });
+});
