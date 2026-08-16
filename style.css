@@ -87,11 +87,11 @@ body {
 }
 
 /* Sombra suave na imagem ao passar o mouse */
-.rounded-full {
+.profile-photo {
     transition: transform 0.3s ease;
 }
 
-.rounded-full:hover {
+.profile-photo:hover {
     transform: scale(1.05); /* Aumenta 5% ao passar o mouse */
 }
 
