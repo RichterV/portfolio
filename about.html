@@ -1,68 +1,107 @@
-<section id="about" class="py-20 section-bg leaf-pattern">
+<section id="about" class="py-20 bg-term-bg2 border-t border-term-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl font-bold text-gray-800 mb-4">About Me</h2>
-            <div class="w-20 h-1 bg-green-500 mx-auto"></div>
+        <div class="mb-16 max-w-2xl">
+            <p class="font-mono text-sm text-term-muted mb-2"><span class="text-term-green">$</span> ./about-me</p>
+            <h2 class="font-mono text-3xl font-bold text-term-text"># About</h2>
         </div>
-        <div class="flex flex-col md:flex-row items-center">
-            <div class="md:w-1/3 mb-10 md:mb-0 flex justify-center">
-                <div class="profile-photo max-w-xs rounded-full overflow-hidden border-4 border-green-500 shadow-lg">
-                    <img src="assets/images/foto_perfil.jpg" alt="Profile" class="w-full h-auto object-contain">
+
+        <div class="flex flex-col md:flex-row items-start gap-12">
+            <div class="md:w-1/3 w-full flex justify-center">
+                <div class="term-window w-full max-w-xs">
+                    <div class="term-titlebar">
+                        <span class="term-dot bg-red-500/70"></span>
+                        <span class="term-dot bg-yellow-500/70"></span>
+                        <span class="term-dot bg-term-green/70"></span>
+                        <span class="ml-2 text-[11px] text-term-faint font-mono truncate">profile.jpg</span>
+                    </div>
+                    <div class="profile-photo overflow-hidden aspect-square">
+                        <img src="assets/images/foto_perfil.jpg" alt="Profile" class="w-full h-full object-cover">
+                    </div>
                 </div>
             </div>
-            <div class="md:w-2/3 md:pl-12">
-                <h3 class="text-2xl font-semibold text-gray-800 mb-6">Hello, I'm Vinicius Richter</h3>
 
-                <p class="text-gray-600 mb-6">
-                    I am a Forest Data Scientist with a background in Forest Engineering, working at the intersection
-                    of data science, machine learning, and statistics applied to the forestry sector. I hold a
-                    Master’s degree in Forest Engineering from UFSM, with a focus on forest growth and yield,
-                    geotechnologies, and the application of machine learning techniques for qualitative and
-                    quantitative forest monitoring. I am currently pursuing a Bachelor’s degree in Computer Science
-                    at IFFar, deepening my knowledge in programming and computational solution development.
-                </p>
+            <div class="md:w-2/3 w-full">
+                <h3 class="font-mono text-2xl font-semibold text-term-text mb-2">Hello, I'm Vinicius Richter</h3>
+                <p class="font-mono text-sm text-term-green mb-8">Forest Data Scientist | Machine Learning Engineer |
+                    Software Developer</p>
 
-                <p class="text-gray-600 mb-6">
-                    Throughout my career, I have developed the Python library ForestPyTools and the QGIS plugin
-                    FPT PlotAllocation, aimed at optimizing planning and data processing in forest management
-                    projects. I have experience in geoprocessing, remote sensing, forest inventory, statistical
-                    modeling, and in developing machine learning and deep learning models for estimating forest
-                    attributes.
-                </p>
+                <div class="space-y-6 text-term-muted leading-relaxed">
+                    <p>
+                        I am a Forest Data Scientist with a background in Forest Engineering, working at the
+                        intersection
+                        of data science, machine learning, and statistics applied to the forestry sector. I hold a
+                        Master's degree in Forest Engineering from UFSM, with a focus on forest growth and yield,
+                        geotechnologies, and the application of machine learning techniques for qualitative and
+                        quantitative forest monitoring. I am currently pursuing a Bachelor's degree in Computer
+                        Science
+                        at IFFar, deepening my knowledge in programming and computational solution development.
+                    </p>
 
-                <p class="text-gray-600 mb-8">
-                    I have worked as a freelance data analyst, delivering solutions in data analysis, analytical
-                    workflow automation, BI dashboards, and computer vision applied to forest monitoring. I also
-                    gained industry experience in the forestry sector, with experience at companies such as
-                    CMPC Celulose Riograndense and Brasplan, working on forest inventory processing, neural network
-                    calibration, interactive dashboard development, and the integration of data science solutions
-                    into operational systems.
-                </p>
+                    <p>
+                        Throughout my career, I have developed the Python library ForestPyTools and the QGIS plugin
+                        FPT PlotAllocation, aimed at optimizing planning and data processing in forest management
+                        projects. I have experience in geoprocessing, remote sensing, forest inventory, statistical
+                        modeling, and in developing machine learning and deep learning models for estimating forest
+                        attributes.
+                    </p>
 
-                <p class="text-gray-600 mb-8">
-                    I am currently working as <strong>Forest Biometry Analyst – Level II (Forest Data
-                        Scientist)</strong>
-                    at <strong>Treevia Forest Technologies</strong>, where I am responsible for developing and
-                    maintaining statistical and data science–based solutions for forest data processing, including
-                    predictive modeling, LiDAR data processing, geoprocessing, analytical automation, and the
-                    continuous evaluation of new methodologies to support data-driven decision-making.
-                </p>
+                    <p>
+                        I have worked as a freelance data analyst, delivering solutions in data analysis, analytical
+                        workflow automation, BI dashboards, and computer vision applied to forest monitoring. I also
+                        gained industry experience in the forestry sector, with experience at companies such as
+                        CMPC Celulose Riograndense and Brasplan, working on forest inventory processing, neural
+                        network
+                        calibration, interactive dashboard development, and the integration of data science solutions
+                        into operational systems.
+                    </p>
 
-                <p class="text-gray-600 mb-6">
-                    I am a curious professional, driven by continuous learning, with a strong focus on data science,
-                    machine learning, artificial intelligence, statistics, and the development of scalable solutions
-                    for real-world challenges in the forestry and environmental sectors.
-                </p>
+                    <p>
+                        I am currently working as <strong class="text-term-text">Forest Biometry Analyst – Level II
+                            (Forest Data Scientist)</strong>
+                        at <strong class="text-term-text">Treevia Forest Technologies</strong>, where I am responsible
+                        for developing and
+                        maintaining statistical and data science–based solutions for forest data processing,
+                        including
+                        predictive modeling, LiDAR data processing, geoprocessing, analytical automation, and the
+                        continuous evaluation of new methodologies to support data-driven decision-making.
+                    </p>
 
-                <div class="flex flex-wrap gap-4">
-                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Python</span>
-                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">R</span>
-                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">QGIS</span>
-                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Power BI</span>
-                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Machine
-                        Learning</span>
-                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Data
-                        Analysis</span>
+                    <p>
+                        I am a curious professional, driven by continuous learning, with a strong focus on data
+                        science,
+                        machine learning, artificial intelligence, statistics, and the development of scalable
+                        solutions
+                        for real-world challenges in the forestry and environmental sectors.
+                    </p>
+                </div>
+
+                <div class="term-window mt-10">
+                    <div class="term-titlebar">
+                        <span class="text-[11px] text-term-faint font-mono">$ system.status</span>
+                    </div>
+                    <div class="p-4 sm:p-5 font-mono text-sm space-y-1.5">
+                        <p><span class="text-term-green">[ OK ]</span> <span class="text-term-muted">Machine
+                                Learning</span></p>
+                        <p><span class="text-term-green">[ OK ]</span> <span class="text-term-muted">Computer
+                                Vision</span></p>
+                        <p><span class="text-term-green">[ OK ]</span> <span class="text-term-muted">Geospatial
+                                Analysis (QGIS)</span></p>
+                        <p><span class="text-term-green">[ OK ]</span> <span class="text-term-muted">Forest Inventory
+                                &amp; Biometrics</span></p>
+                        <p><span class="text-term-green">[ OK ]</span> <span class="text-term-muted">LiDAR
+                                Processing</span></p>
+                        <p><span class="text-term-green">[ OK ]</span> <span class="text-term-muted">Statistical
+                                Modeling</span></p>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap gap-2 mt-8">
+                    <span class="term-tag">Python</span>
+                    <span class="term-tag">R</span>
+                    <span class="term-tag">QGIS</span>
+                    <span class="term-tag">Power BI</span>
+                    <span class="term-tag">Machine Learning</span>
+                    <span class="term-tag">Data Analysis</span>
                 </div>
             </div>
         </div>

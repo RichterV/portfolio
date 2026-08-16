@@ -21,8 +21,39 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050505">
   <title>Vinicius Richter | Forest Engineer & Data Scientist</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            term: {
+              bg: '#050505',
+              bg2: '#0a0a0a',
+              panel: '#0d0f0d',
+              border: '#1c1f1c',
+              border2: '#2a2f2a',
+              green: '#00ff88',
+              dim: '#00cc6d',
+              text: '#e7e9e7',
+              muted: '#8a938c',
+              faint: '#5c645e',
+            },
+          },
+          fontFamily: {
+            mono: ['"JetBrains Mono"', '"Fira Code"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Consolas', 'monospace'],
+          },
+        },
+      },
+    };
+  </script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
@@ -31,7 +62,7 @@
 </head>
 
 
-<body class="bg-gray-50">
+<body class="font-mono bg-term-bg text-term-text">
   <!-- Navigation -->
   <div id="navigation"></div>
   <!-- Hero Section -->

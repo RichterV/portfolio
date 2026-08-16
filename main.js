@@ -91,7 +91,7 @@ function initProjectsCarousel() {
   track.innerHTML = '';
   pageGroups.forEach(group => {
     const pageDiv = document.createElement('div');
-    pageDiv.className = 'grid content-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full flex-shrink-0 px-2';
+    pageDiv.className = 'grid content-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full flex-shrink-0 px-2';
     group.forEach(card => pageDiv.appendChild(card));
     track.appendChild(pageDiv);
   });
@@ -99,7 +99,7 @@ function initProjectsCarousel() {
   dotsContainer.innerHTML = '';
   pageGroups.forEach((_, idx) => {
     const dot = document.createElement('button');
-    dot.className = 'w-2.5 h-2.5 rounded-full bg-gray-300 transition-colors';
+    dot.className = 'w-6 h-1.5 rounded-sm bg-term-border transition-colors duration-300';
     dot.setAttribute('aria-label', `${idx + 1}`);
     dot.addEventListener('click', () => goToPage(idx));
     dotsContainer.appendChild(dot);
@@ -112,8 +112,8 @@ function initProjectsCarousel() {
   function updateUI() {
     track.style.transform = `translateX(-${currentPage * 100}%)`;
     Array.from(dotsContainer.children).forEach((dot, idx) => {
-      dot.classList.toggle('bg-green-600', idx === currentPage);
-      dot.classList.toggle('bg-gray-300', idx !== currentPage);
+      dot.classList.toggle('bg-term-green', idx === currentPage);
+      dot.classList.toggle('bg-term-border', idx !== currentPage);
     });
   }
 
@@ -180,20 +180,19 @@ loadSectionsAndInit(() => {
   // ScrollReveal
   const scrollReveal = ScrollReveal({
     origin: 'top',
-    distance: '30px',
-    duration: 700,
+    distance: '18px',
+    duration: 550,
     reset: true
   });
 
   scrollReveal.reveal(`
-    #home h1, #home h2, #home p, #home a,
-    #about .image, #about h2, #about h3, #about p, #about span,
-    #education h2, #education .flex,
-    #projects h2, #projects .card-hover,
+    #about h2, #about .term-window, #about .space-y-6, #about .flex-wrap,
+    #education h2, #education .term-window,
+    #projects h2, #projects pre, #projects .card-hover,
     #research h2, #research .card-hover,
-    .tech-icon,
-    #contact h2, #contact form, #contact .bg-white
-  `, { interval: 100 });
+    #technologies h2, #technologies .term-window,
+    #contact h2, #contact .term-window
+  `, { interval: 60 });
 
   // Mobile menu toggle
   const menuToggle = document.getElementById('menu-toggle');
@@ -280,9 +279,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 window.addEventListener('scroll', function () {
   const nav = document.querySelector('nav');
   if (window.scrollY > 10) {
-    nav.classList.add('shadow-lg');
+    nav.classList.add('nav-scrolled');
   } else {
-    nav.classList.remove('shadow-lg');
+    nav.classList.remove('nav-scrolled');
   }
 
   backToTop();

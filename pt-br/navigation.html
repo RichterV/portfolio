@@ -1,37 +1,39 @@
-<nav id="navigation" class="fixed w-full bg-white shadow-sm z-50">
+<nav id="navigation" class="fixed w-full bg-term-bg/90 backdrop-blur border-b border-term-border z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex items-center">
-                <a href="#home" class="text-xl font-bold text-green-600">RichterV</a>
+                <a href="#home" class="text-lg font-bold text-term-text tracking-tight">
+                    <span class="text-term-green">~/</span>RichterV
+                </a>
             </div>
             <div class="hidden md:flex items-center space-x-8">
                 <a href="#home"
-                    class="nav-link text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-medium">Início</a>
+                    class="nav-link text-term-muted hover:text-term-green px-3 py-2 text-sm font-medium">./inicio</a>
                 <a href="#about"
-                    class="nav-link text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-medium">Sobre</a>
+                    class="nav-link text-term-muted hover:text-term-green px-3 py-2 text-sm font-medium">./sobre</a>
                 <a href="#education"
-                    class="nav-link text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-medium">Formação</a>
+                    class="nav-link text-term-muted hover:text-term-green px-3 py-2 text-sm font-medium">./formacao</a>
                 <a href="#projects"
-                    class="nav-link text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-medium">Projetos</a>
+                    class="nav-link text-term-muted hover:text-term-green px-3 py-2 text-sm font-medium">./projetos</a>
                 <a href="#research"
-                    class="nav-link text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-medium">Pesquisa</a>
+                    class="nav-link text-term-muted hover:text-term-green px-3 py-2 text-sm font-medium">./pesquisa</a>
                 <a href="#contact"
-                    class="nav-link text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-medium">Contato</a>
+                    class="nav-link text-term-muted hover:text-term-green px-3 py-2 text-sm font-medium">./contato</a>
             </div>
-            <div class="hidden md:flex items-center space-x-4">
+            <div class="hidden md:flex items-center space-x-3">
                 <button id="lang-en" onclick="window.location.href='../index.html'"
-                    class="flex items-center space-x-2 hover:text-green-600 focus:outline-none">
-                    <img src="https://flagcdn.com/us.svg" alt="English" class="w-5 h-5 rounded-full">
-                    <span class="text-sm">EN</span>
+                    class="flex items-center space-x-2 px-2 py-1 border border-term-border rounded-md text-term-muted hover:text-term-green hover:border-term-green focus:outline-none">
+                    <img src="https://flagcdn.com/us.svg" alt="English" class="w-4 h-4 rounded-full">
+                    <span class="text-xs">EN</span>
                 </button>
                 <button id="lang-pt" onclick="window.location.href='index.html'"
-                    class="flex items-center space-x-2 hover:text-green-600 focus:outline-none">
-                    <img src="https://flagcdn.com/br.svg" alt="Português" class="w-5 h-5 rounded-full">
-                    <span class="text-sm">PT-BR</span>
+                    class="flex items-center space-x-2 px-2 py-1 border border-term-border rounded-md text-term-muted hover:text-term-green hover:border-term-green focus:outline-none">
+                    <img src="https://flagcdn.com/br.svg" alt="Português" class="w-4 h-4 rounded-full">
+                    <span class="text-xs">PT-BR</span>
                 </button>
             </div>
             <div class="md:hidden flex items-center">
-                <button id="menu-toggle" class="text-gray-700 hover:text-green-600">
+                <button id="menu-toggle" class="text-term-muted hover:text-term-green">
                     <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M4 6h16M4 12h16M4 18h16"></path>
@@ -41,25 +43,25 @@
         </div>
     </div>
     <!-- Mobile menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+    <div id="mobile-menu" class="hidden md:hidden bg-term-bg border-t border-term-border">
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <a href="#home" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-green-600">Início</a>
-            <a href="#about" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-green-600">Sobre</a>
+            <a href="#home" class="block px-3 py-2 text-base font-medium text-term-muted hover:text-term-green">./inicio</a>
+            <a href="#about" class="block px-3 py-2 text-base font-medium text-term-muted hover:text-term-green">./sobre</a>
             <a href="#education"
-                class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-green-600">Educação</a>
+                class="block px-3 py-2 text-base font-medium text-term-muted hover:text-term-green">./formacao</a>
             <a href="#projects"
-                class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-green-600">Projetos</a>
+                class="block px-3 py-2 text-base font-medium text-term-muted hover:text-term-green">./projetos</a>
             <a href="#contact"
-                class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-green-600">Contato</a>
+                class="block px-3 py-2 text-base font-medium text-term-muted hover:text-term-green">./contato</a>
         </div>
-        <div class="flex justify-center space-x-6 py-3">
+        <div class="flex justify-center space-x-6 py-3 border-t border-term-border">
             <button id="lang-en-mobile" onclick="window.location.href='../index.html'"
-                class="flex items-center space-x-2 hover:text-green-600">
+                class="flex items-center space-x-2 text-term-muted hover:text-term-green">
                 <img src="https://flagcdn.com/us.svg" alt="English" class="w-5 h-5 rounded-full">
                 <span class="text-sm">EN</span>
             </button>
             <button id="lang-pt-mobile" onclick="window.location.href='index.html'"
-                class="flex items-center space-x-2 hover:text-green-600">
+                class="flex items-center space-x-2 text-term-muted hover:text-term-green">
                 <img src="https://flagcdn.com/br.svg" alt="Português" class="w-5 h-5 rounded-full">
                 <span class="text-sm">PT-BR</span>
             </button>

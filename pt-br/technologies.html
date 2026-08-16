@@ -1,59 +1,89 @@
-<section id="technologies" class="py-16 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold text-gray-800 mb-4">Tecnologias que uso</h2>
-            <div class="w-20 h-1 bg-green-500 mx-auto"></div>
+<section id="technologies" class="py-20 bg-term-bg2 border-t border-term-border">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-12 max-w-2xl">
+            <p class="font-mono text-sm text-term-muted mb-2"><span class="text-term-green">$</span> pip list <span
+                    class="text-term-faint">&amp;&amp; apt list --installed</span></p>
+            <h2 class="font-mono text-3xl font-bold text-term-text"># Tecnologias que uso</h2>
         </div>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
-            <div class="flex flex-col items-center tech-icon">
-                <i class="fab fa-python text-5xl text-green-600 mb-2"></i>
-                <span class="text-gray-700">Python</span>
+
+        <div class="term-window">
+            <div class="term-titlebar">
+                <span class="term-dot bg-red-500/70"></span>
+                <span class="term-dot bg-yellow-500/70"></span>
+                <span class="term-dot bg-term-green/70"></span>
+                <span class="ml-2 text-[11px] text-term-faint font-mono truncate">stack.sh</span>
             </div>
-            <div class="flex flex-col items-center tech-icon">
-                <i class="fab fa-r-project text-5xl text-green-600 mb-2"></i>
-                <span class="text-gray-700">R</span>
-            </div>
-            <div class="flex flex-col items-center tech-icon">
-                <i class="fas fa-terminal text-5xl text-green-600 mb-2"></i>
-                <span class="text-gray-700">C</span>
-            </div>
-            <div class="flex flex-col items-center tech-icon">
-                <i class="fab fa-js text-5xl text-green-600 mb-2"></i>
-                <span class="text-gray-700">JavaScript</span>
-            </div>
-            <div class="flex flex-col items-center tech-icon">
-                <i class="fas fa-map-marked-alt text-5xl text-green-600 mb-2"></i>
-                <span class="text-gray-700">QGIS</span>
-            </div>
-            <div class="flex flex-col items-center tech-icon">
-                <i class="fas fa-chart-pie text-5xl text-green-600 mb-2"></i>
-                <span class="text-gray-700">Power BI</span>
-            </div>
-            <div class="flex flex-col items-center tech-icon">
-                <i class="fas fa-brain text-5xl text-green-600 mb-2"></i>
-                <span class="text-gray-700">TensorFlow</span>
-            </div>
-            <div class="flex flex-col items-center tech-icon">
-                <i class="fas fa-database text-5xl text-green-600 mb-2"></i>
-                <span class="text-gray-700">SQL</span>
-            </div>
-            <div class="flex flex-col items-center tech-icon">
-                <i class="fab fa-git-alt text-5xl text-green-600 mb-2"></i>
-                <span class="text-gray-700">Git</span>
-            </div>
-            <div class="flex flex-col items-center tech-icon">
-                <i class="fab fa-docker text-5xl text-green-600 mb-2"></i>
-                <span class="text-gray-700">Docker</span>
-            </div>
-            <div class="flex flex-col items-center tech-icon">
-                <i class="fab fa-linux text-5xl text-green-600 mb-2"></i>
-                <span class="text-gray-700">Linux</span>
-            </div>
-            <div class="flex flex-col items-center tech-icon">
-                <i class="fas fa-microchip text-5xl text-green-600 mb-2"></i>
-                <span class="text-gray-700">scikit-learn</span>
+            <div class="p-6 sm:p-8">
+                <p class="font-mono text-xs text-term-faint mb-3">$ pip list <span
+                        class="text-term-muted"># linguagens e frameworks</span></p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-10 mb-8">
+                    <div class="tech-icon flex items-center justify-between gap-3 py-2.5 border-b border-term-border">
+                        <span class="flex items-center gap-3 text-term-text font-mono text-sm"><i
+                                class="fab fa-python text-term-green w-5 text-center"></i>python</span>
+                        <span class="font-mono text-xs text-term-muted">[ OK ]</span>
+                    </div>
+                    <div class="tech-icon flex items-center justify-between gap-3 py-2.5 border-b border-term-border">
+                        <span class="flex items-center gap-3 text-term-text font-mono text-sm"><i
+                                class="fab fa-r-project text-term-green w-5 text-center"></i>r</span>
+                        <span class="font-mono text-xs text-term-muted">[ OK ]</span>
+                    </div>
+                    <div class="tech-icon flex items-center justify-between gap-3 py-2.5 border-b border-term-border">
+                        <span class="flex items-center gap-3 text-term-text font-mono text-sm"><i
+                                class="fas fa-terminal text-term-green w-5 text-center"></i>c</span>
+                        <span class="font-mono text-xs text-term-muted">[ OK ]</span>
+                    </div>
+                    <div class="tech-icon flex items-center justify-between gap-3 py-2.5 border-b border-term-border">
+                        <span class="flex items-center gap-3 text-term-text font-mono text-sm"><i
+                                class="fab fa-js text-term-green w-5 text-center"></i>javascript</span>
+                        <span class="font-mono text-xs text-term-muted">[ OK ]</span>
+                    </div>
+                    <div class="tech-icon flex items-center justify-between gap-3 py-2.5 border-b border-term-border">
+                        <span class="flex items-center gap-3 text-term-text font-mono text-sm"><i
+                                class="fas fa-brain text-term-green w-5 text-center"></i>tensorflow</span>
+                        <span class="font-mono text-xs text-term-muted">[ OK ]</span>
+                    </div>
+                    <div class="tech-icon flex items-center justify-between gap-3 py-2.5 border-b border-term-border">
+                        <span class="flex items-center gap-3 text-term-text font-mono text-sm"><i
+                                class="fas fa-microchip text-term-green w-5 text-center"></i>scikit-learn</span>
+                        <span class="font-mono text-xs text-term-muted">[ OK ]</span>
+                    </div>
+                </div>
+
+                <p class="font-mono text-xs text-term-faint mb-3">$ apt list --installed <span
+                        class="text-term-muted"># ferramentas e plataformas</span></p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-10">
+                    <div class="tech-icon flex items-center justify-between gap-3 py-2.5 border-b border-term-border">
+                        <span class="flex items-center gap-3 text-term-text font-mono text-sm"><i
+                                class="fas fa-map-marked-alt text-term-green w-5 text-center"></i>qgis</span>
+                        <span class="font-mono text-xs text-term-muted">[ OK ]</span>
+                    </div>
+                    <div class="tech-icon flex items-center justify-between gap-3 py-2.5 border-b border-term-border">
+                        <span class="flex items-center gap-3 text-term-text font-mono text-sm"><i
+                                class="fas fa-chart-pie text-term-green w-5 text-center"></i>power-bi</span>
+                        <span class="font-mono text-xs text-term-muted">[ OK ]</span>
+                    </div>
+                    <div class="tech-icon flex items-center justify-between gap-3 py-2.5 border-b border-term-border">
+                        <span class="flex items-center gap-3 text-term-text font-mono text-sm"><i
+                                class="fas fa-database text-term-green w-5 text-center"></i>sql</span>
+                        <span class="font-mono text-xs text-term-muted">[ OK ]</span>
+                    </div>
+                    <div class="tech-icon flex items-center justify-between gap-3 py-2.5 border-b border-term-border">
+                        <span class="flex items-center gap-3 text-term-text font-mono text-sm"><i
+                                class="fab fa-git-alt text-term-green w-5 text-center"></i>git</span>
+                        <span class="font-mono text-xs text-term-muted">[ OK ]</span>
+                    </div>
+                    <div class="tech-icon flex items-center justify-between gap-3 py-2.5 border-b border-term-border">
+                        <span class="flex items-center gap-3 text-term-text font-mono text-sm"><i
+                                class="fab fa-docker text-term-green w-5 text-center"></i>docker</span>
+                        <span class="font-mono text-xs text-term-muted">[ OK ]</span>
+                    </div>
+                    <div class="tech-icon flex items-center justify-between gap-3 py-2.5 border-b border-term-border">
+                        <span class="flex items-center gap-3 text-term-text font-mono text-sm"><i
+                                class="fab fa-linux text-term-green w-5 text-center"></i>linux</span>
+                        <span class="font-mono text-xs text-term-muted">[ OK ]</span>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
     </div>
 </section>

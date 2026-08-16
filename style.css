@@ -1,132 +1,417 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
+/* ==========================================================================
+   Design tokens
+   ========================================================================== */
 :root {
-    /* HSL color mode */
-    --hue: 159;
-    --base-color: hsl(var(--hue) 36% 57%);
-    --text-color-light: hsl(0 0% 98%);
-    --bg-hero-url: url('assets/images/hero_background.webp');
+  --term-bg: #050505;
+  --term-bg-2: #0a0a0a;
+  --term-panel: #0d0f0d;
+  --term-border: #1c1f1c;
+  --term-border-2: #2a2f2a;
+  --term-green: #00ff88;
+  --term-green-dim: #00cc6d;
+  --term-text: #e7e9e7;
+  --term-muted: #8a938c;
+  --term-faint: #5c645e;
 
+  /* legacy hooks kept so existing rules stay in sync with the new palette */
+  --base-color: var(--term-green);
+  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
+
+* {
+  border-color: var(--term-border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-    font-family: 'Inter', sans-serif;
-    scroll-behavior: smooth;
+  font-family: var(--font-mono);
+  background-color: var(--term-bg);
+  color: var(--term-text);
 }
 
-.hero-bg {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                var(--bg-hero-url);
-    background-size: cover;
-    background-position: center;
+::selection {
+  background: var(--term-green);
+  color: #04140c;
 }
 
-.section-bg {
-    background-color: rgba(245, 245, 245, 0.9);
+:focus-visible {
+  outline: 2px solid var(--term-green);
+  outline-offset: 2px;
 }
 
+/* Scrollbar theming (WebKit + Firefox) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--term-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--term-border-2);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--term-green-dim);
+}
+html {
+  scrollbar-color: var(--term-border-2) var(--term-bg);
+  scrollbar-width: thin;
+}
+
+/* ==========================================================================
+   Hero grid / glow background
+   ========================================================================== */
+.term-grid-bg {
+  position: relative;
+  background-image:
+    linear-gradient(rgba(0, 255, 136, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 136, 0.05) 1px, transparent 1px);
+  background-size: 42px 42px;
+  background-position: center;
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at center, black 40%, transparent 90%);
+  mask-image: radial-gradient(ellipse 80% 70% at center, black 40%, transparent 90%);
+}
+
+.term-hero-glow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse 60% 50% at center 35%, rgba(0, 255, 136, 0.08), transparent 65%);
+}
+
+/* ==========================================================================
+   Terminal window chrome
+   ========================================================================== */
+.term-window {
+  background: var(--term-panel);
+  border: 1px solid var(--term-border);
+  border-radius: 6px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+}
+
+.term-titlebar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.9rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid var(--term-border);
+}
+
+.term-dot {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* ==========================================================================
+   Cards (projects / research) — reuses the existing .card-hover hook so the
+   carousel JS (which binds mouseenter/mouseleave on this class) keeps working
+   ========================================================================== */
 .card-hover {
-    transition: all 0.3s ease;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .card-hover:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  border-color: var(--term-green-dim);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(0, 255, 136, 0.08);
+}
+
+/* ==========================================================================
+   Tags / badges
+   ========================================================================== */
+.term-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  border: 1px solid var(--term-border-2);
+  border-radius: 3px;
+  color: var(--term-green);
+  background: rgba(0, 255, 136, 0.06);
+  letter-spacing: 0.02em;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.term-tag:hover {
+  transform: translateY(-2px);
+  background: rgba(0, 255, 136, 0.12);
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+.term-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  border: 1px solid var(--term-green);
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.term-btn-solid {
+  background: var(--term-green);
+  color: #04140c;
+}
+.term-btn-solid:hover {
+  background: #33ffa3;
+  box-shadow: 0 0 28px rgba(0, 255, 136, 0.35);
+  transform: translateY(-2px);
+}
+
+.term-btn-ghost {
+  background: transparent;
+  color: var(--term-green);
+}
+.term-btn-ghost:hover {
+  background: rgba(0, 255, 136, 0.08);
+  box-shadow: 0 0 18px rgba(0, 255, 136, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Small icon buttons (contact channels) */
+.term-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 4px;
+  border: 1px solid var(--term-border-2);
+  background: var(--term-panel);
+  color: var(--term-green);
+  transition: all 0.25s ease;
+}
+.term-icon-btn:hover {
+  background: var(--term-green);
+  color: #04140c;
+  border-color: var(--term-green);
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Recolor flat SVG icon files to the exact brand green via masking, so
+   inconsistent baked-in fill colors never fight the palette
+   ========================================================================== */
+.term-icon-mask {
+  display: inline-block;
+  background-color: var(--term-green);
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+.term-icon-mask.icon-richcrypter {
+  -webkit-mask-image: url('assets/icons/rich_crypter_icon.svg');
+  mask-image: url('assets/icons/rich_crypter_icon.svg');
+}
+.term-icon-mask.icon-regression {
+  -webkit-mask-image: url('assets/icons/regression_visualizer_icon.svg');
+  mask-image: url('assets/icons/regression_visualizer_icon.svg');
+}
+
+/* ==========================================================================
+   Blinking cursor + typing effect (hero boot sequence)
+   ========================================================================== */
+.term-cursor {
+  display: inline-block;
+  width: 0.55ch;
+  height: 1em;
+  background: var(--term-green);
+  vertical-align: text-bottom;
+  margin-left: 2px;
+  animation: term-blink 1s steps(1) infinite;
+}
+
+@keyframes term-blink {
+  50% { opacity: 0; }
+}
+
+.term-typed-whoami {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: bottom;
+  width: 6ch;
+  animation: term-type 0.6s steps(6, end) 0.2s both;
+}
+
+@keyframes term-type {
+  from { width: 0; }
+}
+
+/* Staggered boot-sequence fade-ins */
+.boot-fade {
+  opacity: 0;
+  transform: translateY(6px);
+  animation: term-boot-in 0.5s ease forwards;
+}
+.boot-fade.d1 { animation-delay: 0.05s; }
+.boot-fade.d2 { animation-delay: 0.35s; }
+.boot-fade.d3 { animation-delay: 0.55s; }
+.boot-fade.d4 { animation-delay: 0.9s; }
+.boot-fade.d5 { animation-delay: 1.6s; }
+
+@keyframes term-boot-in {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ASCII progress bar */
+.term-bar-track {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  width: 20ch;
+  white-space: nowrap;
+}
+.term-bar-fill {
+  display: inline-block;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: term-fill 1s linear 0.9s forwards;
+}
+@keyframes term-fill {
+  to { transform: scaleX(1); }
+}
+.term-bar-pct {
+  opacity: 0;
+  animation: term-fade-in 0.3s ease 1.85s forwards;
+}
+@keyframes term-fade-in {
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .term-typed-whoami,
+  .term-bar-fill,
+  .term-bar-pct,
+  .boot-fade,
+  .term-cursor {
+    animation: none !important;
+  }
+  .term-typed-whoami { width: 6ch; }
+  .term-bar-fill { transform: scaleX(1); }
+  .term-bar-pct,
+  .boot-fade { opacity: 1; transform: none; }
+  .term-cursor { opacity: 1; }
+}
+
+/* ==========================================================================
+   Misc component states
+   ========================================================================== */
+.contact-input {
+  transition: all 0.3s ease;
+}
+.contact-input:focus {
+  border-color: var(--term-green);
+  box-shadow: 0 0 0 2px rgba(0, 255, 136, 0.2);
+}
+.contact-input::placeholder {
+  color: var(--term-faint);
+}
+
+.profile-photo {
+  transition: transform 0.4s ease;
+}
+.profile-photo:hover {
+  transform: scale(1.04);
 }
 
 .tech-icon {
-    transition: all 0.3s ease;
+  transition: transform 0.3s ease;
 }
-
 .tech-icon:hover {
-    transform: scale(1.2);
-}
-
-.nav-link {
-    position: relative;
-}
-
-.nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: #4ade80;
-    transition: width 0.3s ease;
-}
-
-.nav-link:hover::after {
-    width: 100%;
-}
-
-.contact-input {
-    transition: all 0.3s ease;
-}
-
-.contact-input:focus {
-    border-color: #4ade80;
-    box-shadow: 0 0 0 2px rgba(74, 222, 128, 0.2);
-}
-
-
-.leaf-pattern {
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2322c55e' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-}
-
-
-/* Aplica efeito de flutuação para os badges/etiquetas */
-.flex.flex-wrap.gap-4 span {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.flex.flex-wrap.gap-4 span:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Sombra suave na imagem ao passar o mouse */
-.profile-photo {
-    transition: transform 0.3s ease;
-}
-
-.profile-photo:hover {
-    transform: scale(1.05); /* Aumenta 5% ao passar o mouse */
+  transform: scale(1.15);
 }
 
 /* BOTÃO DE VOLTAR AO TOPO */
 .back-to-top {
-    background: var(--base-color);
-    color: var(--text-color-light);
-    position: fixed;
-    right: 1rem;
-    bottom: 1rem;
-  
-    width: 2.5rem;
-    height: 2.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  
-    clip-path: circle();
-    font-size: 1.3rem; /* tamanho do ícone */
-    line-height: 0;
-  
-    visibility: hidden;
-    opacity: 0;
-    transition: 0.3s;
-    transform: translateY(100%);
-  }
-  
-  .back-to-top.show {
-    visibility: visible;
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  nav a.active {
-  color: var(--base-color); /* ou #22c55e, por exemplo */
+  background: var(--term-panel);
+  color: var(--term-green);
+  border: 1px solid var(--term-green);
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+
+  width: 2.75rem;
+  height: 2.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 4px;
+  font-size: 1.1rem;
+  line-height: 0;
+
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s;
+  transform: translateY(100%);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.back-to-top:hover {
+  background: var(--term-green);
+  color: #04140c;
+  box-shadow: 0 0 22px rgba(0, 255, 136, 0.35);
+}
+
+.back-to-top.show {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Nav */
+nav {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+nav.nav-scrolled {
+  background-color: rgba(5, 5, 5, 0.95) !important;
+  box-shadow: 0 1px 0 0 rgba(0, 255, 136, 0.15);
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--base-color);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+nav a.active {
+  color: var(--base-color);
   font-weight: bold;
   position: relative;
 }

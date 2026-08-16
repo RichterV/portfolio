@@ -1,154 +1,193 @@
-<section id="projects" class="py-20 bg-gray-50">
+<section id="projects" class="py-20 bg-term-bg border-t border-term-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl font-bold text-gray-800 mb-4">Projects</h2>
-            <div class="w-20 h-1 bg-green-500 mx-auto"></div>
-            <p class="text-gray-600 max-w-2xl mx-auto mt-6">A selection of my recent work at the intersection of
-                forestry and technology</p>
+        <div class="mb-16 max-w-2xl">
+            <p class="font-mono text-sm text-term-muted mb-2"><span class="text-term-green">$</span> ls -la
+                ~/projects</p>
+            <h2 class="font-mono text-3xl font-bold text-term-text mb-6"># Projects</h2>
+            <pre class="font-mono text-xs sm:text-sm text-term-muted leading-relaxed overflow-x-auto"><span class="text-term-green">~/projects/</span>
+├── forestpytools/
+├── fpt-plotallocation/
+├── context-classification/
+├── md-to-pdf-curriculum/
+├── regression-visualizer/
+├── richcrypter/
+└── network-analysis-tool/</pre>
         </div>
 
         <div class="relative">
             <div id="projects-viewport" class="overflow-x-hidden overflow-y-visible">
-            <div id="projects-track" class="flex transition-transform duration-500 ease-in-out">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full flex-shrink-0 px-2">
-            <!-- Project 1 -->
-            <div class="bg-white rounded-lg overflow-hidden shadow-md card-hover flex flex-col h-full">
-                <div class="h-48 bg-green-100 flex items-center justify-center">
-                    <i class="fab fa-python text-6xl text-green-600"></i>
-                </div>
-                <div class="p-6 flex flex-col flex-1">
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">ForestPyTools</h3>
-                        <p class="text-gray-600 mb-4">Plan and process efficient Forest Management in an easier and
-                            more
-                            intuitive way using Python.</p>
-                    </div>
-                    <div class="mt-auto flex justify-center items-center gap-4">
-                        <span class="text-sm text-green-600 font-medium">Python</span>
-                        <a href="https://richterv.github.io/fptoolsdoc/"
-                            class="text-green-600 hover:text-green-800 font-medium">View Details →</a>
-                    </div>
-                </div>
-            </div>
+                <div id="projects-track" class="flex transition-transform duration-500 ease-in-out">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full flex-shrink-0 px-2">
+                        <!-- Project 1 -->
+                        <div class="card-hover bg-term-panel border border-term-border rounded-md flex flex-col h-full overflow-hidden">
+                            <div class="flex items-center gap-2 px-4 py-2.5 border-b border-term-border bg-black/20">
+                                <i class="fab fa-python text-term-green text-sm"></i>
+                                <span class="font-mono text-xs text-term-muted truncate">forestpytools.py</span>
+                                <span class="ml-auto w-1.5 h-1.5 rounded-full bg-term-green/70"></span>
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <div>
+                                    <h3 class="font-mono text-base font-semibold text-term-text mb-2">ForestPyTools
+                                    </h3>
+                                    <p class="text-sm text-term-muted mb-4">Plan and process efficient Forest
+                                        Management in an easier and more intuitive way using Python.</p>
+                                </div>
+                                <div class="mt-auto flex justify-between items-center pt-3 border-t border-term-border">
+                                    <span class="term-tag">Python</span>
+                                    <a href="https://richterv.github.io/fptoolsdoc/"
+                                        class="text-term-green hover:text-white text-sm font-medium inline-flex items-center gap-1">View
+                                        Details <i class="fas fa-arrow-right text-[10px]"></i></a>
+                                </div>
+                            </div>
+                        </div>
 
-            <!-- Project 2 -->
-            <div class="bg-white rounded-lg overflow-hidden shadow-md card-hover flex flex-col h-full">
-                <div class="h-48 bg-green-100 flex items-center justify-center">
-                    <i class="fas fa-map-marked-alt text-6xl text-green-600"></i>
-                </div>
-                <div class="p-6 flex flex-col flex-1">
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">FPT PlotAllocation</h3>
-                        <p class="text-gray-600 mb-4">Plan forest inventories using QGIS software with the FPT Plot
-                            Allocation plugin.</p>
-                    </div>
-                    <div class="mt-auto flex justify-center items-center gap-4">
-                        <span class="text-sm text-green-600 font-medium">QGIS</span>
-                        <a href="https://richterv.github.io/fptoolsdoc/plot_allocation_qgis/"
-                            class="text-green-600 hover:text-green-800 font-medium">View Details →</a>
-                    </div>
-                </div>
-            </div>
+                        <!-- Project 2 -->
+                        <div class="card-hover bg-term-panel border border-term-border rounded-md flex flex-col h-full overflow-hidden">
+                            <div class="flex items-center gap-2 px-4 py-2.5 border-b border-term-border bg-black/20">
+                                <i class="fas fa-map-marked-alt text-term-green text-sm"></i>
+                                <span class="font-mono text-xs text-term-muted truncate">plot_allocation.qgis</span>
+                                <span class="ml-auto w-1.5 h-1.5 rounded-full bg-term-green/70"></span>
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <div>
+                                    <h3 class="font-mono text-base font-semibold text-term-text mb-2">FPT
+                                        PlotAllocation</h3>
+                                    <p class="text-sm text-term-muted mb-4">Plan forest inventories using QGIS
+                                        software with the FPT Plot Allocation plugin.</p>
+                                </div>
+                                <div class="mt-auto flex justify-between items-center pt-3 border-t border-term-border">
+                                    <span class="term-tag">QGIS</span>
+                                    <a href="https://richterv.github.io/fptoolsdoc/plot_allocation_qgis/"
+                                        class="text-term-green hover:text-white text-sm font-medium inline-flex items-center gap-1">View
+                                        Details <i class="fas fa-arrow-right text-[10px]"></i></a>
+                                </div>
+                            </div>
+                        </div>
 
-            <!-- Project 3 -->
-            <div class="bg-white rounded-lg overflow-hidden shadow-md card-hover flex flex-col h-full">
-                <div class="h-48 bg-green-100 flex items-center justify-center">
-                    <i class="fa-solid fa-diagram-project text-6xl text-green-600"></i>
-                </div>
-                <div class="p-6 flex flex-col flex-1">
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Context Classification</h3>
-                        <p class="text-gray-600 mb-4">Allows the use of a U-Net++ neural network to segment .tiff images into different classes.</p>
-                    </div>
-                    <div class="mt-auto flex justify-center items-center gap-4">
-                        <span class="text-sm text-green-600 font-medium">Git Repository</span>
-                        <a href="https://github.com/RichterV/Context-Classification"
-                            class="text-green-600 hover:text-green-800 font-medium">View Details →</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Project 4 -->
-            <div class="bg-white rounded-lg overflow-hidden shadow-md card-hover flex flex-col h-full">
-                <div class="h-48 bg-green-100 flex items-center justify-center">
-                    <i class="fa-solid fa-file-pdf text-6xl text-green-600"></i>
-                </div>
-                <div class="p-6 flex flex-col flex-1">
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Curriculum Optimizer</h3>
-                        <p class="text-gray-600 mb-4">Converts Markdown resumes into polished, ATS-friendly PDF
-                            curriculums.</p>
-                    </div>
-                    <div class="mt-auto flex justify-center items-center gap-4">
-                        <span class="text-sm text-green-600 font-medium">Git Repository</span>
-                        <a href="https://github.com/RichterV/MD_to_PDF_curriculum"
-                            class="text-green-600 hover:text-green-800 font-medium">View Details →</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Project 5 -->
-            <div class="bg-white rounded-lg overflow-hidden shadow-md card-hover flex flex-col h-full">
-                <div class="h-48 bg-green-100 flex items-center justify-center">
-                    <img src="assets/icons/regression_visualizer_icon.svg" alt="Custom Icon"
-                        class="w-16 h-16 text-green-600">
-                </div>
-                <div class="p-6 flex flex-col flex-1">
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Regression Visualizer</h3>
-                        <p class="text-gray-600 mb-4">A tool to explore how coefficients affect regression curves.</p>
-                    </div>
-                    <div class="mt-auto flex justify-center items-center gap-4">
-                        <span class="text-sm text-green-600 font-medium">Site</span>
-                        <a href="https://richterv.github.io/regression_visualizer/"
-                            class="text-green-600 hover:text-green-800 font-medium">View Details →</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Project 6 -->
-            <div class="bg-white rounded-lg overflow-hidden shadow-md card-hover flex flex-col h-full">
-                <div class="h-48 bg-green-100 flex items-center justify-center">
-                    <img src="assets/icons/rich_crypter_icon.svg" alt="Custom Icon" class="w-16 h-16 text-green-600">
-                </div>
+                        <!-- Project 3 -->
+                        <div class="card-hover bg-term-panel border border-term-border rounded-md flex flex-col h-full overflow-hidden">
+                            <div class="flex items-center gap-2 px-4 py-2.5 border-b border-term-border bg-black/20">
+                                <i class="fa-solid fa-diagram-project text-term-green text-sm"></i>
+                                <span class="font-mono text-xs text-term-muted truncate">context_classification.ipynb</span>
+                                <span class="ml-auto w-1.5 h-1.5 rounded-full bg-term-green/70"></span>
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <div>
+                                    <h3 class="font-mono text-base font-semibold text-term-text mb-2">Context
+                                        Classification</h3>
+                                    <p class="text-sm text-term-muted mb-4">Allows the use of a U-Net++ neural network
+                                        to segment .tiff images into different classes.</p>
+                                </div>
+                                <div class="mt-auto flex justify-between items-center pt-3 border-t border-term-border">
+                                    <span class="term-tag">Git Repository</span>
+                                    <a href="https://github.com/RichterV/Context-Classification"
+                                        class="text-term-green hover:text-white text-sm font-medium inline-flex items-center gap-1">View
+                                        Details <i class="fas fa-arrow-right text-[10px]"></i></a>
+                                </div>
+                            </div>
+                        </div>
 
-                <div class="p-6 flex flex-col flex-1">
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">RichCrypter</h3>
-                        <p class="text-gray-600 mb-4">Protect passwords and PDF files with a unique binary key-based
-                            encryption system, offering enhanced security and greater control over your data.</p>
+                        <!-- Project 4 -->
+                        <div class="card-hover bg-term-panel border border-term-border rounded-md flex flex-col h-full overflow-hidden">
+                            <div class="flex items-center gap-2 px-4 py-2.5 border-b border-term-border bg-black/20">
+                                <i class="fa-solid fa-file-pdf text-term-green text-sm"></i>
+                                <span class="font-mono text-xs text-term-muted truncate">md_to_pdf.sh</span>
+                                <span class="ml-auto w-1.5 h-1.5 rounded-full bg-term-green/70"></span>
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <div>
+                                    <h3 class="font-mono text-base font-semibold text-term-text mb-2">Curriculum
+                                        Optimizer</h3>
+                                    <p class="text-sm text-term-muted mb-4">Converts Markdown resumes into polished,
+                                        ATS-friendly PDF curriculums.</p>
+                                </div>
+                                <div class="mt-auto flex justify-between items-center pt-3 border-t border-term-border">
+                                    <span class="term-tag">Git Repository</span>
+                                    <a href="https://github.com/RichterV/MD_to_PDF_curriculum"
+                                        class="text-term-green hover:text-white text-sm font-medium inline-flex items-center gap-1">View
+                                        Details <i class="fas fa-arrow-right text-[10px]"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 5 -->
+                        <div class="card-hover bg-term-panel border border-term-border rounded-md flex flex-col h-full overflow-hidden">
+                            <div class="flex items-center gap-2 px-4 py-2.5 border-b border-term-border bg-black/20">
+                                <span class="term-icon-mask icon-regression w-3.5 h-3.5"></span>
+                                <span class="font-mono text-xs text-term-muted truncate">regression_visualizer.js</span>
+                                <span class="ml-auto w-1.5 h-1.5 rounded-full bg-term-green/70"></span>
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <div>
+                                    <h3 class="font-mono text-base font-semibold text-term-text mb-2">Regression
+                                        Visualizer</h3>
+                                    <p class="text-sm text-term-muted mb-4">A tool to explore how coefficients affect
+                                        regression curves.</p>
+                                </div>
+                                <div class="mt-auto flex justify-between items-center pt-3 border-t border-term-border">
+                                    <span class="term-tag">Site</span>
+                                    <a href="https://richterv.github.io/regression_visualizer/"
+                                        class="text-term-green hover:text-white text-sm font-medium inline-flex items-center gap-1">View
+                                        Details <i class="fas fa-arrow-right text-[10px]"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 6 -->
+                        <div class="card-hover bg-term-panel border border-term-border rounded-md flex flex-col h-full overflow-hidden">
+                            <div class="flex items-center gap-2 px-4 py-2.5 border-b border-term-border bg-black/20">
+                                <span class="term-icon-mask icon-richcrypter w-3.5 h-3.5"></span>
+                                <span class="font-mono text-xs text-term-muted truncate">rich_crypter.bin</span>
+                                <span class="ml-auto w-1.5 h-1.5 rounded-full bg-term-green/70"></span>
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <div>
+                                    <h3 class="font-mono text-base font-semibold text-term-text mb-2">RichCrypter</h3>
+                                    <p class="text-sm text-term-muted mb-4">Protect passwords and PDF files with a
+                                        unique binary key-based encryption system, offering enhanced security and
+                                        greater control over your data.</p>
+                                </div>
+                                <div class="mt-auto flex justify-between items-center pt-3 border-t border-term-border">
+                                    <span class="term-tag">App</span>
+                                    <a href="https://github.com/RichterV/RichCrypter"
+                                        class="text-term-green hover:text-white text-sm font-medium inline-flex items-center gap-1">View
+                                        Details <i class="fas fa-arrow-right text-[10px]"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 7 -->
+                        <div class="card-hover bg-term-panel border border-term-border rounded-md flex flex-col h-full overflow-hidden">
+                            <div class="flex items-center gap-2 px-4 py-2.5 border-b border-term-border bg-black/20">
+                                <i class="fa-solid fa-network-wired text-term-green text-sm"></i>
+                                <span class="font-mono text-xs text-term-muted truncate">network_analysis.py</span>
+                                <span class="ml-auto w-1.5 h-1.5 rounded-full bg-term-green/70"></span>
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <div>
+                                    <h3 class="font-mono text-base font-semibold text-term-text mb-2">Network Analysis
+                                        Tool</h3>
+                                    <p class="text-sm text-term-muted mb-4">Project created to analyze the network
+                                        structure of the Consórcio Intermunicipal do Médio Alto Uruguai.</p>
+                                </div>
+                                <div class="mt-auto flex justify-between items-center pt-3 border-t border-term-border">
+                                    <span class="term-tag">Site</span>
+                                    <a href="https://richterv.github.io/PPI-CC/"
+                                        class="text-term-green hover:text-white text-sm font-medium inline-flex items-center gap-1">View
+                                        Details <i class="fas fa-arrow-right text-[10px]"></i></a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mt-auto flex justify-center items-center gap-4">
-                        <span class="text-sm text-green-600 font-medium">App</span>
-                        <a href="https://github.com/RichterV/RichCrypter"
-                            class="text-green-600 hover:text-green-800 font-medium">View Details →</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Project 7 -->
-            <div class="bg-white rounded-lg overflow-hidden shadow-md card-hover flex flex-col h-full">
-                <div class="h-48 bg-green-100 flex items-center justify-center">
-                    <i class="fa-solid fa-network-wired text-6xl text-green-600"></i>
-                </div>
-                <div class="p-6 flex flex-col flex-1">
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Network Analysis Tool</h3>
-                        <p class="text-gray-600 mb-4">Project created to analyze the network structure of the
-                            Consórcio Intermunicipal do Médio Alto Uruguai.</p>
-                    </div>
-                    <div class="mt-auto flex justify-center items-center gap-4">
-                        <span class="text-sm text-green-600 font-medium">Site</span>
-                        <a href="https://richterv.github.io/PPI-CC/"
-                            class="text-green-600 hover:text-green-800 font-medium">View Details →</a>
-                    </div>
-                </div>
-            </div>
                 </div>
             </div>
             <button id="projects-prev" aria-label="Previous projects"
-                class="hidden absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md hover:bg-green-50 text-green-600 items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 z-10">
-                <i class="fas fa-chevron-left"></i>
+                class="hidden absolute left-0 sm:-left-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-md border border-term-border bg-term-panel hover:border-term-green hover:text-term-green text-term-muted items-center justify-center opacity-0 pointer-events-none transition-all duration-300 z-10">
+                <i class="fas fa-chevron-left text-sm"></i>
             </button>
             <button id="projects-next" aria-label="Next projects"
-                class="hidden absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md hover:bg-green-50 text-green-600 items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 z-10">
-                <i class="fas fa-chevron-right"></i>
+                class="hidden absolute right-0 sm:-right-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-md border border-term-border bg-term-panel hover:border-term-green hover:text-term-green text-term-muted items-center justify-center opacity-0 pointer-events-none transition-all duration-300 z-10">
+                <i class="fas fa-chevron-right text-sm"></i>
             </button>
         </div>
         <div id="projects-dots-wrapper" class="hidden justify-center items-center mt-10">
