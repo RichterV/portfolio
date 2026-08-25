@@ -107,7 +107,10 @@ function initProjectsCarousel() {
 
   let currentPage = 0;
   let autoplayTimer = null;
+  let scrollIdleTimer = null;
+  let sectionInView = false;
   const AUTOPLAY_DELAY = 4000;
+  const SCROLL_IDLE_DELAY = 700;
 
   function updateUI() {
     track.style.transform = `translateX(-${currentPage * 100}%)`;
@@ -132,6 +135,27 @@ function initProjectsCarousel() {
       clearInterval(autoplayTimer);
       autoplayTimer = null;
     }
+  }
+
+  function cancelScheduledAutoplay() {
+    if (scrollIdleTimer) {
+      clearTimeout(scrollIdleTimer);
+      scrollIdleTimer = null;
+    }
+  }
+
+  function scheduleAutoplayStart() {
+    cancelScheduledAutoplay();
+    scrollIdleTimer = setTimeout(() => {
+      if (sectionInView) startAutoplay();
+    }, SCROLL_IDLE_DELAY);
+  }
+
+  function resetToFirstPage() {
+    stopAutoplay();
+    cancelScheduledAutoplay();
+    currentPage = 0;
+    updateUI();
   }
 
   prevBtn.addEventListener('click', () => goToPage(currentPage - 1));
@@ -170,7 +194,31 @@ function initProjectsCarousel() {
   dotsWrapper.classList.add('flex');
 
   updateUI();
-  startAutoplay();
+
+  // Só inicia o autoplay quando o usuário parar de rolar dentro da seção de
+  // projetos, e sempre volta para a primeira página ao entrar/sair dela.
+  // Assim, ao rolar rapidamente até "projects", o usuário sempre vê os
+  // 6 projetos da primeira página em vez de cair em uma página intermediária.
+  if (projectsSection) {
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          sectionInView = true;
+          resetToFirstPage();
+          scheduleAutoplayStart();
+        } else {
+          sectionInView = false;
+          resetToFirstPage();
+        }
+      });
+    }, { threshold: 0.4 });
+
+    sectionObserver.observe(projectsSection);
+
+    window.addEventListener('scroll', () => {
+      if (sectionInView) scheduleAutoplayStart();
+    }, { passive: true });
+  }
 }
 
 // Inicialização principal
