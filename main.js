@@ -75,7 +75,7 @@ function initProjectsCarousel() {
   const nextBtn = document.getElementById('projects-next');
   const dotsWrapper = document.getElementById('projects-dots-wrapper');
   const dotsContainer = document.getElementById('projects-dots');
-  if (!viewport || !track || !prevBtn || !nextBtn || !dotsWrapper || !dotsContainer) return;
+  if (!track || !prevBtn || !nextBtn || !dotsWrapper || !dotsContainer) return;
 
   const firstPage = track.firstElementChild;
   if (!firstPage) return;
@@ -92,7 +92,7 @@ function initProjectsCarousel() {
   track.innerHTML = '';
   pageGroups.forEach(group => {
     const pageDiv = document.createElement('div');
-    pageDiv.className = 'grid content-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full flex-shrink-0 px-2';
+    pageDiv.className = 'grid content-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full flex-shrink-0 px-2';
     group.forEach(card => pageDiv.appendChild(card));
     track.appendChild(pageDiv);
   });
@@ -113,20 +113,8 @@ function initProjectsCarousel() {
   const AUTOPLAY_DELAY = 4000;
   const SCROLL_IDLE_DELAY = 700;
 
-  // Cada página pode ter uma altura diferente (ex: última página com menos
-  // cards, ou grid de 1 coluna no mobile). Sem isso, o viewport ficava
-  // travado na altura da página mais alta e as páginas menores pareciam
-  // "vazias" ao navegar pelo carrossel.
-  function updatePageHeight() {
-    const activePage = track.children[currentPage];
-    if (activePage) {
-      viewport.style.height = `${activePage.offsetHeight}px`;
-    }
-  }
-
   function updateUI() {
     track.style.transform = `translateX(-${currentPage * 100}%)`;
-    updatePageHeight();
     Array.from(dotsContainer.children).forEach((dot, idx) => {
       dot.classList.toggle('bg-term-green', idx === currentPage);
       dot.classList.toggle('bg-term-border', idx !== currentPage);
@@ -174,6 +162,38 @@ function initProjectsCarousel() {
   prevBtn.addEventListener('click', () => goToPage(currentPage - 1));
   nextBtn.addEventListener('click', () => goToPage(currentPage + 1));
 
+  // Arrastar (swipe) no mobile faz o mesmo que os botões prev/next.
+  if (viewport) {
+    const SWIPE_THRESHOLD = 40;
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchDeltaX = 0;
+    let touchDeltaY = 0;
+
+    viewport.addEventListener('touchstart', (e) => {
+      const touch = e.touches[0];
+      touchStartX = touch.clientX;
+      touchStartY = touch.clientY;
+      touchDeltaX = 0;
+      touchDeltaY = 0;
+      stopAutoplay();
+      cancelScheduledAutoplay();
+    }, { passive: true });
+
+    viewport.addEventListener('touchmove', (e) => {
+      const touch = e.touches[0];
+      touchDeltaX = touch.clientX - touchStartX;
+      touchDeltaY = touch.clientY - touchStartY;
+    }, { passive: true });
+
+    viewport.addEventListener('touchend', () => {
+      if (Math.abs(touchDeltaX) > SWIPE_THRESHOLD && Math.abs(touchDeltaX) > Math.abs(touchDeltaY)) {
+        goToPage(touchDeltaX < 0 ? currentPage + 1 : currentPage - 1);
+      }
+      if (sectionInView) scheduleAutoplayStart();
+    });
+  }
+
   track.querySelectorAll('.card-hover').forEach(card => {
     card.addEventListener('mouseenter', stopAutoplay);
     card.addEventListener('mouseleave', startAutoplay);
@@ -216,23 +236,17 @@ function initProjectsCarousel() {
 
   updateUI();
 
-  // Recalcula a altura da página ativa quando o layout muda de coluna
-  // (ex: rotação de tela ou redimensionamento da janela).
-  window.addEventListener('resize', updatePageHeight);
-
   // Só inicia o autoplay quando o usuário parar de rolar dentro da seção de
   // projetos, e sempre volta para a primeira página ao entrar/sair dela.
   // Assim, ao rolar rapidamente até "projects", o usuário sempre vê os
   // 6 projetos da primeira página em vez de cair em uma página intermediária.
   if (projectsSection) {
-    // Só reseta a página ao cruzar a fronteira de entrar/sair da seção.
-    // Sem isso, o próprio redimensionamento do carrossel (updatePageHeight)
-    // pode reacionar o observer enquanto a seção continua visível, forçando
-    // a página de volta pra 1 logo após o usuário clicar em "next".
+    // Só reseta a página ao cruzar a fronteira de entrar/sair da seção
+    // (evita resets redundantes se o observer disparar mais de uma vez
+    // seguida com o mesmo estado).
     let wasInView = false;
     const sectionObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        console.log('DEBUG observer', entry.isIntersecting, entry.intersectionRatio, entry.boundingClientRect.top, entry.boundingClientRect.height);
         if (entry.isIntersecting) {
           sectionInView = true;
           if (!wasInView) resetToFirstPage();

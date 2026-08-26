@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>cartao_visita source (OG image mockup PT-BR)</title>
+<!--
+  Fonte editável de assets/images/cartao_visita.png.
+  Para gerar a imagem: abra este arquivo num browser headless (Playwright)
+  com viewport 1200x630 e deviceScaleFactor 2, e tire um screenshot.
+  Reutiliza as mesmas classes/paleta de style.css (term-window, term-dot, etc).
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          term: {
+            bg: '#050505', bg2: '#0a0a0a', panel: '#0d0f0d',
+            border: '#1c1f1c', border2: '#2a2f2a',
+            green: '#00ff88', dim: '#00cc6d',
+            text: '#e7e9e7', muted: '#8a938c', faint: '#5c645e',
+          },
+        },
+        fontFamily: {
+          mono: ['"JetBrains Mono"', '"Fira Code"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Consolas', 'monospace'],
+        },
+      },
+    },
+  };
+</script>
+<link rel="stylesheet" href="style.css">
+<style>
+  html, body { margin: 0; padding: 0; }
+  body {
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .canvas-grid {
+    position: absolute;
+    inset: 0;
+  }
+  .term-cursor { animation: none !important; opacity: 1 !important; }
+  .boot-fade { opacity: 1 !important; transform: none !important; animation: none !important; }
+  .term-typed-whoami { width: 6ch !important; animation: none !important; }
+</style>
+</head>
+<body class="font-mono bg-term-bg text-term-text">
+  <div class="canvas-grid term-grid-bg term-hero-glow"></div>
+  <div class="relative z-10" style="width: 900px;">
+    <div class="term-window">
+      <div class="term-titlebar">
+        <span class="term-dot bg-red-500/70"></span>
+        <span class="term-dot bg-yellow-500/70"></span>
+        <span class="term-dot bg-term-green/70"></span>
+        <span class="ml-2 text-xs text-term-faint font-mono truncate" id="titlebar-text">visitante@richterv: ~</span>
+      </div>
+      <div class="p-12">
+        <p class="font-mono text-base text-term-muted mb-10">
+          <span class="text-term-green">$</span> <span class="term-typed-whoami">whoami</span>
+        </p>
+
+        <h1 class="boot-fade d2 font-mono text-6xl font-bold text-term-text mb-8 leading-tight" id="name">
+          Vinicius Richter
+        </h1>
+
+        <div class="boot-fade d3 font-mono text-xl text-term-text mb-12 space-y-3" id="roles">
+          <p><span class="text-term-green">▸</span> Cientista de Dados</p>
+          <p><span class="text-term-green">▸</span> Engenheiro de Machine Learning</p>
+          <p><span class="text-term-green">▸</span> Desenvolvedor de Software</p>
+        </div>
+
+        <p class="boot-fade d5 font-mono text-sm text-term-green tracking-wide" id="ready-line">
+          SISTEMA PRONTO<span class="term-cursor"></span>
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
