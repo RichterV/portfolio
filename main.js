@@ -4,7 +4,7 @@ const sections = [
   { id: "include-hero", file: "hero.html" },
   { id: "about", file: "about.html" },
   { id: "education", file: "education.html" },
-  { id: "projects", file: "projects.html" },
+  { id: "projects-container", file: "projects.html" },
   { id: "research", file: "research.html" },
   { id: "technologies", file: "technologies.html" },
   { id: "contact", file: "contact.html" },
@@ -69,12 +69,13 @@ function loadSectionsAndInit(callback) {
 // Carrossel de projetos: mantém a grade de 3 colunas x 2 linhas,
 // e só ativa o carrossel se houver mais de 6 projetos
 function initProjectsCarousel() {
+  const viewport = document.getElementById('projects-viewport');
   const track = document.getElementById('projects-track');
   const prevBtn = document.getElementById('projects-prev');
   const nextBtn = document.getElementById('projects-next');
   const dotsWrapper = document.getElementById('projects-dots-wrapper');
   const dotsContainer = document.getElementById('projects-dots');
-  if (!track || !prevBtn || !nextBtn || !dotsWrapper || !dotsContainer) return;
+  if (!viewport || !track || !prevBtn || !nextBtn || !dotsWrapper || !dotsContainer) return;
 
   const firstPage = track.firstElementChild;
   if (!firstPage) return;
@@ -112,8 +113,20 @@ function initProjectsCarousel() {
   const AUTOPLAY_DELAY = 4000;
   const SCROLL_IDLE_DELAY = 700;
 
+  // Cada página pode ter uma altura diferente (ex: última página com menos
+  // cards, ou grid de 1 coluna no mobile). Sem isso, o viewport ficava
+  // travado na altura da página mais alta e as páginas menores pareciam
+  // "vazias" ao navegar pelo carrossel.
+  function updatePageHeight() {
+    const activePage = track.children[currentPage];
+    if (activePage) {
+      viewport.style.height = `${activePage.offsetHeight}px`;
+    }
+  }
+
   function updateUI() {
     track.style.transform = `translateX(-${currentPage * 100}%)`;
+    updatePageHeight();
     Array.from(dotsContainer.children).forEach((dot, idx) => {
       dot.classList.toggle('bg-term-green', idx === currentPage);
       dot.classList.toggle('bg-term-border', idx !== currentPage);
@@ -180,10 +193,18 @@ function initProjectsCarousel() {
     });
   }
 
+  // Em telas touch não existe hover, então as setas nunca apareceriam -
+  // nesse caso deixamos elas sempre visíveis.
+  const supportsHover = window.matchMedia('(hover: hover)').matches;
+
   const projectsSection = document.getElementById('projects');
   if (projectsSection) {
-    projectsSection.addEventListener('mouseenter', showArrows);
-    projectsSection.addEventListener('mouseleave', hideArrows);
+    if (supportsHover) {
+      projectsSection.addEventListener('mouseenter', showArrows);
+      projectsSection.addEventListener('mouseleave', hideArrows);
+    } else {
+      showArrows();
+    }
   }
 
   prevBtn.classList.remove('hidden');
@@ -195,20 +216,32 @@ function initProjectsCarousel() {
 
   updateUI();
 
+  // Recalcula a altura da página ativa quando o layout muda de coluna
+  // (ex: rotação de tela ou redimensionamento da janela).
+  window.addEventListener('resize', updatePageHeight);
+
   // Só inicia o autoplay quando o usuário parar de rolar dentro da seção de
   // projetos, e sempre volta para a primeira página ao entrar/sair dela.
   // Assim, ao rolar rapidamente até "projects", o usuário sempre vê os
   // 6 projetos da primeira página em vez de cair em uma página intermediária.
   if (projectsSection) {
+    // Só reseta a página ao cruzar a fronteira de entrar/sair da seção.
+    // Sem isso, o próprio redimensionamento do carrossel (updatePageHeight)
+    // pode reacionar o observer enquanto a seção continua visível, forçando
+    // a página de volta pra 1 logo após o usuário clicar em "next".
+    let wasInView = false;
     const sectionObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
+        console.log('DEBUG observer', entry.isIntersecting, entry.intersectionRatio, entry.boundingClientRect.top, entry.boundingClientRect.height);
         if (entry.isIntersecting) {
           sectionInView = true;
-          resetToFirstPage();
+          if (!wasInView) resetToFirstPage();
+          wasInView = true;
           scheduleAutoplayStart();
         } else {
           sectionInView = false;
-          resetToFirstPage();
+          if (wasInView) resetToFirstPage();
+          wasInView = false;
         }
       });
     }, { threshold: 0.4 });
@@ -236,7 +269,7 @@ loadSectionsAndInit(() => {
   scrollReveal.reveal(`
     #about h2, #about .term-window, #about .space-y-6, #about .flex-wrap,
     #education h2, #education .term-window,
-    #projects h2, #projects pre, #projects .card-hover,
+    #projects h2, #projects pre,
     #research h2, #research .card-hover,
     #technologies h2, #technologies .term-window,
     #contact h2, #contact .term-window
