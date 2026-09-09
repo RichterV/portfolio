@@ -301,7 +301,7 @@ loadSectionsAndInit(() => {
   scrollReveal.reveal(`
     #about h2, #about .term-window, #about .space-y-6, #about .flex-wrap,
     #education h2, #education .term-window,
-    #projects h2, #projects pre,
+    #projects h2, #projects pre, #projects .card-hover,
     #research h2, #research .card-hover,
     #technologies h2, #technologies .term-window,
     #contact h2, #contact .term-window
