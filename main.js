@@ -66,15 +66,16 @@ function loadSectionsAndInit(callback) {
   });
 }
 
-// Carrossel de projetos: mantém a grade de 3 colunas x 2 linhas,
-// e só ativa o carrossel se houver mais de 6 projetos
-function initProjectsCarousel() {
-  const viewport = document.getElementById('projects-viewport');
-  const track = document.getElementById('projects-track');
-  const prevBtn = document.getElementById('projects-prev');
-  const nextBtn = document.getElementById('projects-next');
-  const dotsWrapper = document.getElementById('projects-dots-wrapper');
-  const dotsContainer = document.getElementById('projects-dots');
+// Carrossel genérico (usado por projetos e pesquisa): mantém a grade de
+// 3 colunas x 2 linhas, e só ativa o carrossel se houver mais itens que cabem
+// em uma página
+function initCarousel({ sectionId, viewportId, trackId, prevId, nextId, dotsWrapperId, dotsId }) {
+  const viewport = document.getElementById(viewportId);
+  const track = document.getElementById(trackId);
+  const prevBtn = document.getElementById(prevId);
+  const nextBtn = document.getElementById(nextId);
+  const dotsWrapper = document.getElementById(dotsWrapperId);
+  const dotsContainer = document.getElementById(dotsId);
   if (!track || !prevBtn || !nextBtn || !dotsWrapper || !dotsContainer) return;
 
   const firstPage = track.firstElementChild;
@@ -217,11 +218,11 @@ function initProjectsCarousel() {
   // nesse caso deixamos elas sempre visíveis.
   const supportsHover = window.matchMedia('(hover: hover)').matches;
 
-  const projectsSection = document.getElementById('projects');
-  if (projectsSection) {
+  const carouselSection = document.getElementById(sectionId);
+  if (carouselSection) {
     if (supportsHover) {
-      projectsSection.addEventListener('mouseenter', showArrows);
-      projectsSection.addEventListener('mouseleave', hideArrows);
+      carouselSection.addEventListener('mouseenter', showArrows);
+      carouselSection.addEventListener('mouseleave', hideArrows);
     } else {
       showArrows();
     }
@@ -236,11 +237,11 @@ function initProjectsCarousel() {
 
   updateUI();
 
-  // Só inicia o autoplay quando o usuário parar de rolar dentro da seção de
-  // projetos, e sempre volta para a primeira página ao entrar/sair dela.
-  // Assim, ao rolar rapidamente até "projects", o usuário sempre vê os
-  // 6 projetos da primeira página em vez de cair em uma página intermediária.
-  if (projectsSection) {
+  // Só inicia o autoplay quando o usuário parar de rolar dentro da seção,
+  // e sempre volta para a primeira página ao entrar/sair dela. Assim, ao
+  // rolar rapidamente até a seção, o usuário sempre vê os itens da primeira
+  // página em vez de cair em uma página intermediária.
+  if (carouselSection) {
     // Só reseta a página ao cruzar a fronteira de entrar/sair da seção
     // (evita resets redundantes se o observer disparar mais de uma vez
     // seguida com o mesmo estado).
@@ -260,7 +261,7 @@ function initProjectsCarousel() {
       });
     }, { threshold: 0.4 });
 
-    sectionObserver.observe(projectsSection);
+    sectionObserver.observe(carouselSection);
 
     window.addEventListener('scroll', () => {
       if (sectionInView) scheduleAutoplayStart();
@@ -270,7 +271,24 @@ function initProjectsCarousel() {
 
 // Inicialização principal
 loadSectionsAndInit(() => {
-  initProjectsCarousel();
+  initCarousel({
+    sectionId: 'projects',
+    viewportId: 'projects-viewport',
+    trackId: 'projects-track',
+    prevId: 'projects-prev',
+    nextId: 'projects-next',
+    dotsWrapperId: 'projects-dots-wrapper',
+    dotsId: 'projects-dots',
+  });
+  initCarousel({
+    sectionId: 'research',
+    viewportId: 'research-viewport',
+    trackId: 'research-track',
+    prevId: 'research-prev',
+    nextId: 'research-next',
+    dotsWrapperId: 'research-dots-wrapper',
+    dotsId: 'research-dots',
+  });
 
   // ScrollReveal
   const scrollReveal = ScrollReveal({

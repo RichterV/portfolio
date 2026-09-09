@@ -10,7 +10,40 @@
             </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="relative">
+            <div id="research-viewport" class="overflow-x-hidden overflow-y-visible">
+                <div id="research-track" class="flex transition-transform duration-500 ease-in-out">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full flex-shrink-0 px-2">
+            <!-- Article 7 -->
+            <div class="card-hover bg-term-panel border border-term-border rounded-md flex flex-col h-full overflow-hidden">
+                <div class="flex items-center gap-2 px-4 py-2.5 border-b border-term-border bg-black/20">
+                    <i class="fa-solid fa-crosshairs text-term-green text-sm"></i>
+                    <span class="font-mono text-xs text-term-muted tracking-wide">JOURNAL</span>
+                    <span class="ml-auto w-1.5 h-1.5 rounded-full bg-term-green/70"></span>
+                </div>
+                <div class="p-5 flex flex-col flex-1">
+                    <div>
+                        <h3 class="font-mono text-base font-semibold text-term-text mb-2 leading-snug">
+                            Remote sensing for precision forestry: detection and counting of
+                            <i>Eucalyptus saligna</i> trees using multispectral RPAS imaging and the YOLOv8n computer
+                            vision algorithm
+                        </h3>
+                        <p class="text-sm text-term-muted mb-4">
+                            This study presents a precision forestry approach combining multispectral RPAS imagery
+                            with the YOLOv8n computer vision algorithm to automatically detect and count
+                            <i>Eucalyptus saligna</i> trees, supporting efficient and scalable forest inventory.
+                        </p>
+                    </div>
+                    <div class="mt-auto pt-3 border-t border-term-border">
+                        <a href="https://doi.org/10.1007/s11056-026-10215-z"
+                            class="text-term-green hover:text-white text-sm font-medium inline-flex items-center gap-1"
+                            target="_blank" rel="noopener noreferrer">
+                            Access Article <i class="fas fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
             <!-- Article 6 -->
             <div class="card-hover bg-term-panel border border-term-border rounded-md flex flex-col h-full overflow-hidden">
                 <div class="flex items-center gap-2 px-4 py-2.5 border-b border-term-border bg-black/20">
@@ -173,6 +206,20 @@
             </div>
 
             <!-- Add more articles as needed -->
+                    </div>
+                </div>
+            </div>
+            <button id="research-prev" aria-label="Previous articles"
+                class="hidden absolute left-0 sm:-left-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-md border border-term-border bg-term-panel hover:border-term-green hover:text-term-green text-term-muted items-center justify-center opacity-0 pointer-events-none transition-all duration-300 z-10">
+                <i class="fas fa-chevron-left text-sm"></i>
+            </button>
+            <button id="research-next" aria-label="Next articles"
+                class="hidden absolute right-0 sm:-right-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-md border border-term-border bg-term-panel hover:border-term-green hover:text-term-green text-term-muted items-center justify-center opacity-0 pointer-events-none transition-all duration-300 z-10">
+                <i class="fas fa-chevron-right text-sm"></i>
+            </button>
+        </div>
+        <div id="research-dots-wrapper" class="hidden justify-center items-center mt-10">
+            <div id="research-dots" class="flex gap-2"></div>
         </div>
     </div>
 </section>
