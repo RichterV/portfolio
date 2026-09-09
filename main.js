@@ -4,7 +4,7 @@ const sections = [
   { id: "include-hero", file: "hero.html" },
   { id: "about", file: "about.html" },
   { id: "education", file: "education.html" },
-  { id: "projects-container", file: "projects.html" },
+  { id: "projects", file: "projects.html" },
   { id: "research", file: "research.html" },
   { id: "technologies", file: "technologies.html" },
   { id: "contact", file: "contact.html" },
