@@ -102,7 +102,7 @@ function initCarousel({ sectionId, viewportId, trackId, prevId, nextId, dotsWrap
     const dot = document.createElement('button');
     dot.className = 'w-6 h-1.5 rounded-sm bg-term-border transition-colors duration-300';
     dot.setAttribute('aria-label', `${idx + 1}`);
-    dot.addEventListener('click', () => goToPage(idx));
+    dot.addEventListener('click', () => manualGoToPage(idx));
     dotsContainer.appendChild(dot);
   });
 
@@ -110,6 +110,10 @@ function initCarousel({ sectionId, viewportId, trackId, prevId, nextId, dotsWrap
   let autoplayTimer = null;
   let scrollIdleTimer = null;
   let sectionInView = false;
+  // Fica true assim que o usuário navega manualmente (seta, dot ou swipe).
+  // Evita que o autoplay desfaça a navegação escolhida por ele alguns
+  // segundos depois; só volta a false ao reentrar na seção.
+  let userNavigated = false;
   const AUTOPLAY_DELAY = 4000;
   const SCROLL_IDLE_DELAY = 700;
 
@@ -126,7 +130,15 @@ function initCarousel({ sectionId, viewportId, trackId, prevId, nextId, dotsWrap
     updateUI();
   }
 
+  function manualGoToPage(idx) {
+    userNavigated = true;
+    stopAutoplay();
+    cancelScheduledAutoplay();
+    goToPage(idx);
+  }
+
   function startAutoplay() {
+    if (userNavigated) return;
     stopAutoplay();
     autoplayTimer = setInterval(() => goToPage(currentPage + 1), AUTOPLAY_DELAY);
   }
@@ -146,6 +158,7 @@ function initCarousel({ sectionId, viewportId, trackId, prevId, nextId, dotsWrap
   }
 
   function scheduleAutoplayStart() {
+    if (userNavigated) return;
     cancelScheduledAutoplay();
     scrollIdleTimer = setTimeout(() => {
       if (sectionInView) startAutoplay();
@@ -153,14 +166,15 @@ function initCarousel({ sectionId, viewportId, trackId, prevId, nextId, dotsWrap
   }
 
   function resetToFirstPage() {
+    userNavigated = false;
     stopAutoplay();
     cancelScheduledAutoplay();
     currentPage = 0;
     updateUI();
   }
 
-  prevBtn.addEventListener('click', () => goToPage(currentPage - 1));
-  nextBtn.addEventListener('click', () => goToPage(currentPage + 1));
+  prevBtn.addEventListener('click', () => manualGoToPage(currentPage - 1));
+  nextBtn.addEventListener('click', () => manualGoToPage(currentPage + 1));
 
   // Arrastar (swipe) no mobile faz o mesmo que os botões prev/next.
   if (viewport) {
@@ -188,9 +202,10 @@ function initCarousel({ sectionId, viewportId, trackId, prevId, nextId, dotsWrap
 
     viewport.addEventListener('touchend', () => {
       if (Math.abs(touchDeltaX) > SWIPE_THRESHOLD && Math.abs(touchDeltaX) > Math.abs(touchDeltaY)) {
-        goToPage(touchDeltaX < 0 ? currentPage + 1 : currentPage - 1);
+        manualGoToPage(touchDeltaX < 0 ? currentPage + 1 : currentPage - 1);
+      } else if (sectionInView) {
+        scheduleAutoplayStart();
       }
-      if (sectionInView) scheduleAutoplayStart();
     });
   }
 
@@ -270,10 +285,6 @@ function initCarousel({ sectionId, viewportId, trackId, prevId, nextId, dotsWrap
 
 // Inicialização principal
 loadSectionsAndInit(() => {
-  // O autoplay pausa sempre que o mouse está sobre um card, e como os
-  // cards cobrem quase toda a seção, a página 2+ raramente chegava a
-  // aparecer na prática. Com um perPage maior, os itens atuais cabem
-  // todos numa grade única, sem depender do carrossel.
   initCarousel({
     sectionId: 'projects',
     viewportId: 'projects-viewport',
@@ -282,7 +293,6 @@ loadSectionsAndInit(() => {
     nextId: 'projects-next',
     dotsWrapperId: 'projects-dots-wrapper',
     dotsId: 'projects-dots',
-    perPage: 12,
   });
   initCarousel({
     sectionId: 'research',
@@ -292,7 +302,6 @@ loadSectionsAndInit(() => {
     nextId: 'research-next',
     dotsWrapperId: 'research-dots-wrapper',
     dotsId: 'research-dots',
-    perPage: 12,
   });
 
   // ScrollReveal
@@ -303,11 +312,17 @@ loadSectionsAndInit(() => {
     reset: true
   });
 
+  // O ScrollReveal calcula a posição dos cards por offsetLeft/offsetTop,
+  // que ignoram o transform: translateX usado pelo carrossel para trocar
+  // de página - então cards fora da 1ª página nunca seriam considerados
+  // "visíveis" e ficariam com opacidade 0 para sempre. Por isso só a
+  // primeira página de #projects/#research entra na animação de reveal;
+  // as demais aparecem normalmente ao virar a página.
   scrollReveal.reveal(`
     #about h2, #about .term-window, #about .space-y-6, #about .flex-wrap,
     #education h2, #education .term-window,
-    #projects h2, #projects pre, #projects .card-hover,
-    #research h2, #research .card-hover,
+    #projects h2, #projects pre, #projects-track > div:first-child .card-hover,
+    #research h2, #research-track > div:first-child .card-hover,
     #technologies h2, #technologies .term-window,
     #contact h2, #contact .term-window
   `, { interval: 60 });
