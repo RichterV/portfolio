@@ -69,7 +69,7 @@ function loadSectionsAndInit(callback) {
 // Carrossel genérico (usado por projetos e pesquisa): mantém a grade de
 // 3 colunas x 2 linhas, e só ativa o carrossel se houver mais itens que cabem
 // em uma página
-function initCarousel({ sectionId, viewportId, trackId, prevId, nextId, dotsWrapperId, dotsId }) {
+function initCarousel({ sectionId, viewportId, trackId, prevId, nextId, dotsWrapperId, dotsId, perPage = 6 }) {
   const viewport = document.getElementById(viewportId);
   const track = document.getElementById(trackId);
   const prevBtn = document.getElementById(prevId);
@@ -82,7 +82,6 @@ function initCarousel({ sectionId, viewportId, trackId, prevId, nextId, dotsWrap
   if (!firstPage) return;
 
   const cards = Array.from(firstPage.children);
-  const perPage = 6;
   if (cards.length <= perPage) return;
 
   const pageGroups = [];
@@ -271,6 +270,10 @@ function initCarousel({ sectionId, viewportId, trackId, prevId, nextId, dotsWrap
 
 // Inicialização principal
 loadSectionsAndInit(() => {
+  // O autoplay pausa sempre que o mouse está sobre um card, e como os
+  // cards cobrem quase toda a seção, a página 2+ raramente chegava a
+  // aparecer na prática. Com um perPage maior, os itens atuais cabem
+  // todos numa grade única, sem depender do carrossel.
   initCarousel({
     sectionId: 'projects',
     viewportId: 'projects-viewport',
@@ -279,6 +282,7 @@ loadSectionsAndInit(() => {
     nextId: 'projects-next',
     dotsWrapperId: 'projects-dots-wrapper',
     dotsId: 'projects-dots',
+    perPage: 12,
   });
   initCarousel({
     sectionId: 'research',
@@ -288,6 +292,7 @@ loadSectionsAndInit(() => {
     nextId: 'research-next',
     dotsWrapperId: 'research-dots-wrapper',
     dotsId: 'research-dots',
+    perPage: 12,
   });
 
   // ScrollReveal
